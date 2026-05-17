@@ -13,7 +13,7 @@ export const gallery: GalleryItem[] = [
     title: "Masjid al-Haram at night",
     caption: "Our 2024 Hajj group at Marwah gate after Tawaf, August 2024.",
     category: "Hajj",
-    src: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/haram-night.webp",
     alt: "Masjid al-Haram illuminated at night with the Kaaba in the centre"
   },
   {
@@ -21,7 +21,7 @@ export const gallery: GalleryItem[] = [
     title: "Madinah Munawwarah",
     caption: "Group photo in front of Masjid an-Nabawi after Fajr.",
     category: "Hajj",
-    src: "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/madinah-roza.webp",
     alt: "Masjid an-Nabawi in Madinah with green dome"
   },
   {
@@ -29,7 +29,7 @@ export const gallery: GalleryItem[] = [
     title: "Mina Mu'allim tents",
     caption: "Our Maktab in Mina, Hajj season 1444.",
     category: "Hajj",
-    src: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/mina-tent.webp",
     alt: "White Mina tents under sunlight"
   },
   {
@@ -37,7 +37,7 @@ export const gallery: GalleryItem[] = [
     title: "Ramadan Umrah jamaat",
     caption: "21-day Ramadan group at Hilton Suites, Makkah.",
     category: "Umrah",
-    src: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/umrah-group.webp",
     alt: "Family group at the lobby of a Makkah hotel"
   },
   {
@@ -45,7 +45,7 @@ export const gallery: GalleryItem[] = [
     title: "Shikara ride on Dal Lake",
     caption: "Kashmir 6N family tour, October 2024.",
     category: "Tours",
-    src: "https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/kashmir-shikara.webp",
     alt: "Shikara boats on Dal Lake, Srinagar"
   },
   {
@@ -53,7 +53,7 @@ export const gallery: GalleryItem[] = [
     title: "Cappadocia balloons",
     caption: "Honeymoon couple at sunrise, Goreme valley, Turkey.",
     category: "Tours",
-    src: "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/turkey-cappadocia.webp",
     alt: "Hot air balloons over Cappadocia at sunrise"
   },
   {
@@ -61,7 +61,7 @@ export const gallery: GalleryItem[] = [
     title: "Bali temple visit",
     caption: "5-night Bali tour, October 2024.",
     category: "Tours",
-    src: "https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/bali-temple.webp",
     alt: "Traditional Balinese temple by the sea"
   },
   {
@@ -69,7 +69,7 @@ export const gallery: GalleryItem[] = [
     title: "Our Uttara office",
     caption: "The Khaja Air Travels team after morning briefing.",
     category: "Office",
-    src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/office-team.webp",
     alt: "Travel agency team at office"
   },
   {
@@ -77,7 +77,7 @@ export const gallery: GalleryItem[] = [
     title: "Ticket counter",
     caption: "Issuing a confirmed ticket on the Amadeus terminal.",
     category: "Office",
-    src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+    src: "/images/gallery/office-counter.webp",
     alt: "Customer being served at an airline ticket counter"
   }
 ];

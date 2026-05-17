@@ -17,8 +17,7 @@ export const posts: Post[] = [
     title: "Hajj 2026 from Bangladesh: early booking guide, quota update and what to do before Muharram",
     excerpt:
       "Saudi Arabia has confirmed the 2026 Hajj quota for Bangladesh. Here is a clear, no-jargon guide on what changes this year, why early booking matters, and the documents you should gather right now.",
-    cover:
-      "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/hajj-2026.webp",
     coverAlt: "Pilgrims circumambulating the Kaaba at Masjid al-Haram",
     category: "Hajj & Umrah",
     author: { name: "Amdadul Haque Mir", role: "Proprietor, Khaja Air Travels" },
@@ -71,8 +70,7 @@ export const posts: Post[] = [
     title: "Umrah in Ramadan: what makes the experience different — and what to plan for",
     excerpt:
       "Performing Umrah in Ramadan carries the reward of Hajj. But the experience is also more intense, more crowded and more spiritually rich. Here is what we tell every pilgrim who books a Ramadan package with us.",
-    cover:
-      "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/umrah-ramadan.webp",
     coverAlt: "Masjid an-Nabawi in Madinah at twilight",
     category: "Hajj & Umrah",
     author: { name: "Mufti Abdul Karim", role: "Resident Mu'allim, Khaja Air Travels" },
@@ -118,8 +116,7 @@ export const posts: Post[] = [
     title: "UAE 60-day tourist visa from Bangladesh: the complete 2026 checklist",
     excerpt:
       "The 60-day UAE tourist visa is one of the most popular travel choices for Bangladeshi families. Here is exactly which documents you need, the realistic processing time, and how to avoid the three most common rejection reasons.",
-    cover:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/uae-visa.webp",
     coverAlt: "Skyline of Dubai with Burj Khalifa at twilight",
     category: "Visa",
     author: { name: "Sumaiya Khan", role: "Senior Visa Officer, Khaja Air Travels" },
@@ -164,8 +161,7 @@ export const posts: Post[] = [
     title: "Kashmir in winter: a 6-night itinerary for first-time Bangladeshi travellers",
     excerpt:
       "Gulmarg in snow, a shikara ride at sunrise, kahwa tea at a houseboat — winter Kashmir is something every Bangladeshi traveller should experience once. This is the itinerary we recommend after booking 400+ Kashmir tours.",
-    cover:
-      "https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/kashmir-winter.webp",
     coverAlt: "Snow-covered houses in Kashmir valley",
     category: "Tours",
     author: { name: "Rakib Hasan", role: "Tour Operations Lead, Khaja Air Travels" },
@@ -219,8 +215,7 @@ export const posts: Post[] = [
     title: "Turkey in 8 days: Istanbul, Cappadocia and Pamukkale — for the Bangladeshi traveller",
     excerpt:
       "Halal-friendly, family-tested and rich in Islamic history — our 8-day Turkey itinerary covers the Blue Mosque, hot-air balloons at sunrise, the white travertines of Pamukkale, and ends with the Bosphorus dinner cruise.",
-    cover:
-      "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/turkey-cappadocia.webp",
     coverAlt: "Hot air balloons over the Cappadocia valley at sunrise",
     category: "Tours",
     author: { name: "Tahsin Mahmud", role: "Senior Travel Consultant, Khaja Air Travels" },
@@ -277,8 +272,7 @@ export const posts: Post[] = [
     title: "Going to Saudi Arabia for work: pre-departure checklist every Bangladeshi worker should follow",
     excerpt:
       "Your first job abroad is a major life decision. This is the practical, government-aligned checklist we hand to every worker placed through Shahi Air International — covering documents, money, health and what to do in the first 30 days.",
-    cover:
-      "https://images.unsplash.com/photo-1614957004131-9e8f2a13123c?auto=format&fit=crop&w=1400&q=80",
+    cover: "/images/blog/saudi-work-visa.webp",
     coverAlt: "Aerial view of Riyadh with the Kingdom Tower at dusk",
     category: "Travel Tips",
     author: { name: "Khalid Mahmud", role: "Recruitment Manager, Shahi Air International" },

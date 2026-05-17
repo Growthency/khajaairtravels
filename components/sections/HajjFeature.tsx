@@ -91,7 +91,7 @@ export function HajjFeature() {
               <div className="absolute inset-0 rotate-2 rounded-[34px] bg-gradient-to-br from-emerald-500/30 to-saffron-500/30 blur-2xl" />
               <div className="relative h-full w-full overflow-hidden rounded-[34px] ring-1 ring-white/15">
                 <Image
-                  src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1100&q=80"
+                  src="/images/hero/hajj-feature.webp"
                   alt="Pilgrims at Masjid al-Haram performing Tawaf"
                   fill
                   sizes="(min-width: 1024px) 400px, 80vw"

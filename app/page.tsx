@@ -1,18 +1,23 @@
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { AirlinesStrip } from "@/components/sections/AirlinesStrip";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { HajjFeature } from "@/components/sections/HajjFeature";
-import { WhyUs } from "@/components/sections/WhyUs";
-import { Stats } from "@/components/sections/Stats";
-import { BranchesShowcase } from "@/components/sections/BranchesShowcase";
-import { Process } from "@/components/sections/Process";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { BlogPreview } from "@/components/sections/BlogPreview";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
+
+const HajjFeature = dynamic(() => import("@/components/sections/HajjFeature").then((m) => m.HajjFeature));
+const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then((m) => m.WhyUs));
+const Stats = dynamic(() => import("@/components/sections/Stats").then((m) => m.Stats));
+const BranchesShowcase = dynamic(() => import("@/components/sections/BranchesShowcase").then((m) => m.BranchesShowcase));
+const Process = dynamic(() => import("@/components/sections/Process").then((m) => m.Process));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then((m) => m.Testimonials));
+const BlogPreview = dynamic(() => import("@/components/sections/BlogPreview").then((m) => m.BlogPreview));
+const CtaBand = dynamic(() => import("@/components/sections/CtaBand").then((m) => m.CtaBand));
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[organizationSchema(), websiteSchema()]} />
       <Hero />
       <AirlinesStrip />
       <ServicesGrid />

@@ -108,7 +108,7 @@ export default function AboutPage() {
               <Reveal y={36}>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-border">
                   <Image
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                    src="/images/about/team.webp"
                     alt="Khaja Air Travels team at the Uttara office"
                     fill
                     sizes="(min-width:1024px) 400px, 80vw"

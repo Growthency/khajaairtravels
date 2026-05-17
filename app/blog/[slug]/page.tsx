@@ -8,6 +8,8 @@ import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { posts, getPost, recentPosts } from "@/lib/data/posts";
 import { formatDate, readingTime } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 type Props = { params: { slug: string } };
 
@@ -39,10 +41,20 @@ export default function BlogPost({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          articleSchema(post),
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: post.title, href: `/blog/${post.slug}` }
+          ])
+        ]}
+      />
       <article>
         <header className="relative isolate overflow-hidden bg-ink text-white pt-28 pb-20 md:pt-36 md:pb-24">
           <div className="absolute inset-0 -z-10 opacity-40">
-            <Image src={post.cover} alt="" fill priority className="object-cover" />
+            <Image src={post.cover} alt="" fill priority sizes="100vw" className="object-cover" />
           </div>
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/85 via-ink/75 to-ink" />
 

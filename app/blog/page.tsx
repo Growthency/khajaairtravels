@@ -67,6 +67,7 @@ export default function BlogIndex() {
                     sizes="(min-width: 1024px) 60vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     priority
+                    fetchPriority="high"
                   />
                 </div>
                 <div className="flex flex-col justify-center gap-5 p-7 md:col-span-5 md:p-10">

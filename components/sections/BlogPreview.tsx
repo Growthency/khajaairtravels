@@ -51,6 +51,7 @@ export function BlogPreview() {
                   src={p.cover}
                   alt={p.coverAlt}
                   fill
+                  loading={i === 0 ? "eager" : "lazy"}
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
