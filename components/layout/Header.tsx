@@ -10,40 +10,49 @@ import { Logo } from "@/components/shared/Logo";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { services } from "@/lib/data/services";
 import { branches } from "@/lib/data/branches";
-
-const nav = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Services",
-    href: "/services",
-    items: services.map((s) => ({
-      label: s.title,
-      href: `/services/${s.slug}`,
-      desc: s.short,
-      icon: s.icon
-    }))
-  },
-  {
-    label: "Branches",
-    href: "/branches",
-    items: branches.map((b) => ({
-      label: b.title,
-      href: `/branches/${b.slug}`,
-      desc: b.role,
-      icon: b.accent === "sky" ? "🛫" : b.accent === "emerald" ? "🏘️" : b.accent === "saffron" ? "🌾" : "🌟"
-    }))
-  },
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" }
-];
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const pathname = usePathname();
+  const { tr } = useLang();
+
+  const serviceLabel = (slug: string, fallback: string) => {
+    const key = slug as keyof typeof t.service;
+    return t.service[key] ? tr(t.service[key]) : fallback;
+  };
+
+  const nav = [
+    { label: tr(t.nav.home), href: "/" },
+    { label: tr(t.nav.about), href: "/about" },
+    {
+      label: tr(t.nav.services),
+      href: "/services",
+      items: services.map((s) => ({
+        label: serviceLabel(s.slug, s.title),
+        href: `/services/${s.slug}`,
+        desc: s.short,
+        icon: s.icon
+      }))
+    },
+    {
+      label: tr(t.nav.branches),
+      href: "/branches",
+      items: branches.map((b) => ({
+        label: b.title,
+        href: `/branches/${b.slug}`,
+        desc: b.role,
+        icon: b.accent === "sky" ? "🛫" : b.accent === "emerald" ? "🏘️" : b.accent === "saffron" ? "🌾" : "🌟"
+      }))
+    },
+    { label: tr(t.nav.blog), href: "/blog" },
+    { label: tr(t.nav.gallery), href: "/gallery" },
+    { label: tr(t.nav.contact), href: "/contact" }
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28);
@@ -69,11 +78,11 @@ export function Header() {
           <div className="flex items-center gap-5">
             <span className="inline-flex items-center gap-1.5">
               <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Govt. Approved Hajj Agency — Licence No-{SITE.licence}
+              {tr(t.topbar.licence)}
             </span>
             <span className="inline-flex items-center gap-1.5 text-white/65">
               <MapPin className="size-3" />
-              Uttara, Dhaka
+              {tr(t.topbar.location)}
             </span>
           </div>
           <div className="flex items-center gap-5">
@@ -191,6 +200,7 @@ export function Header() {
           </ul>
 
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageToggle />
             <a
               href={WA.general}
               target="_blank"
@@ -198,17 +208,20 @@ export function Header() {
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_rgba(5,150,105,0.55)] hover:from-emerald-700 hover:to-emerald-800 hover:-translate-y-0.5 transition-all"
             >
               <WhatsAppIcon size={16} />
-              WhatsApp
+              {tr(t.cta.whatsapp)}
             </a>
           </div>
 
-          <button
-            className="lg:hidden grid size-10 place-items-center rounded-xl bg-paper-2 text-ink"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageToggle />
+            <button
+              className="grid size-10 place-items-center rounded-xl bg-paper-2 text-ink"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -297,7 +310,7 @@ export function Header() {
                 className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white"
               >
                 <WhatsAppIcon size={16} />
-                WhatsApp Us
+                {tr(t.cta.whatsappUs)}
               </a>
             </div>
           </motion.div>

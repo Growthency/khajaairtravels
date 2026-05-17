@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { SITE } from "@/lib/utils";
 import "./globals.css";
 
@@ -122,11 +123,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <WhatsAppFab />
-        <ScrollToTop />
+        <LanguageProvider>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <WhatsAppFab />
+          <ScrollToTop />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -9,49 +9,15 @@ import { TypeWriter } from "@/components/effects/TypeWriter";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { GlobeOrbit } from "@/components/effects/GlobeOrbit";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
-import { WA, SITE } from "@/lib/utils";
+import { WA } from "@/lib/utils";
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
-const floatingCards = [
-  {
-    id: "hajj",
-    label: "Hajj 2026",
-    sub: "Quota open",
-    icon: "🕋",
-    color: "#059669",
-    rotate: -6,
-    x: "0%",
-    y: "6%"
-  },
-  {
-    id: "tickets",
-    label: "Air Ticket",
-    sub: "90+ airlines",
-    icon: "✈️",
-    color: "#1f72e3",
-    rotate: 4,
-    x: "62%",
-    y: "0%"
-  },
-  {
-    id: "visa",
-    label: "Visa Help",
-    sub: "Saudi · UAE · Schengen",
-    icon: "📘",
-    color: "#f96e09",
-    rotate: -3,
-    x: "6%",
-    y: "62%"
-  },
-  {
-    id: "hotel",
-    label: "Hotel near Haram",
-    sub: "300+ properties",
-    icon: "🏨",
-    color: "#1c5dd0",
-    rotate: 5,
-    x: "58%",
-    y: "66%"
-  }
+const cardLayout = [
+  { id: "hajj",    icon: "🕋", color: "#059669", rotate: -6, x: "0%",  y: "6%",  key: "hajj" as const },
+  { id: "tickets", icon: "✈️", color: "#1f72e3", rotate: 4,  x: "62%", y: "0%",  key: "ticket" as const },
+  { id: "visa",    icon: "📘", color: "#f96e09", rotate: -3, x: "6%",  y: "62%", key: "visa" as const },
+  { id: "hotel",   icon: "🏨", color: "#1c5dd0", rotate: 5,  x: "58%", y: "66%", key: "hotel" as const }
 ];
 
 export function Hero() {
@@ -59,6 +25,7 @@ export function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 90]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const { tr, lang } = useLang();
 
   return (
     <section
@@ -81,7 +48,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-semibold text-emerald-800 backdrop-blur"
           >
             <ShieldCheck className="size-4" />
-            Govt. Approved Hajj Agency — Licence No-{SITE.licence}
+            {tr(t.hero.kicker)}
           </motion.div>
 
           <motion.h1
@@ -90,12 +57,16 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="mt-5 font-display text-[40px] leading-[1.05] font-bold tracking-tight text-ink md:text-[60px] lg:text-[68px]"
           >
-            <span className="block">Your journey to the</span>
-            <span className="block gradient-text-shimmer">Haramain begins</span>
+            <span className="block">{tr(t.hero.line1)}</span>
+            <span className="block gradient-text-shimmer">{tr(t.hero.line2)}</span>
             <span className="block min-h-[1.1em]">
-              with{" "}
+              {tr(t.hero.line3pre)}{" "}
               <TypeWriter
-                words={["khedmat.", "trust.", "Khaja Air.", "barakah."]}
+                words={
+                  lang === "bn"
+                    ? ["খেদমত।", "বিশ্বাস।", "খাজা এয়ার।", "বরকত।"]
+                    : ["khedmat.", "trust.", "Khaja Air.", "barakah."]
+                }
                 className="gradient-text"
               />
             </span>
@@ -107,7 +78,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.18 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted md:text-lg"
           >
-            Two decades. Eleven thousand pilgrims to the Haramain. Sixty thousand travellers across the world. Whether it is Hajj, Umrah, a confirmed air ticket or a family holiday in Kashmir — we walk with you from the first call to the moment you are back home.
+            {tr(t.hero.subtitle)}
           </motion.p>
 
           <motion.div
@@ -121,7 +92,7 @@ export function Hero() {
                 href="/services/hajj-umrah"
                 className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_40px_-14px_rgba(5,150,105,0.7)] hover:bg-emerald-700 hover:-translate-y-0.5 transition-all"
               >
-                Plan my Hajj / Umrah
+                {tr(t.cta.planHajj)}
                 <ArrowRight className="size-4" />
               </Link>
             </MagneticButton>
@@ -133,7 +104,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-ink/10 bg-white/70 px-6 py-3.5 text-sm font-semibold text-ink hover:border-emerald-500 hover:text-emerald-700 transition-all backdrop-blur"
               >
                 <WhatsAppIcon size={16} />
-                WhatsApp our desk
+                {tr(t.cta.whatsappDesk)}
               </a>
             </MagneticButton>
           </motion.div>
@@ -145,9 +116,9 @@ export function Hero() {
             className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-ink/10 pt-7"
           >
             {[
-              { value: "20+", label: "Years of khedmat", Icon: Sparkles },
-              { value: "11k+", label: "Hajj pilgrims served", Icon: ShieldCheck },
-              { value: "90+", label: "Airlines on offer", Icon: Plane }
+              { value: "20+", label: tr(t.hero.stats.years),    Icon: Sparkles },
+              { value: "11k+", label: tr(t.hero.stats.pilgrims), Icon: ShieldCheck },
+              { value: "90+", label: tr(t.hero.stats.airlines), Icon: Plane }
             ].map(({ value, label, Icon }) => (
               <div key={label} className="flex flex-col">
                 <div className="flex items-baseline gap-1.5">
@@ -166,7 +137,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative hidden h-[520px] lg:col-span-5 lg:block"
         >
-          {floatingCards.map((card, i) => (
+          {cardLayout.map((card, i) => (
             <motion.div
               key={card.id}
               className="absolute z-10 rounded-2xl border border-border bg-white/95 p-4 shadow-card backdrop-blur"
@@ -185,8 +156,8 @@ export function Hero() {
               >
                 {card.icon}
               </div>
-              <p className="text-sm font-semibold text-ink">{card.label}</p>
-              <p className="mt-0.5 text-xs text-ink-muted">{card.sub}</p>
+              <p className="text-sm font-semibold text-ink">{tr(t.hero.cards[card.key].title)}</p>
+              <p className="mt-0.5 text-xs text-ink-muted">{tr(t.hero.cards[card.key].sub)}</p>
               <div
                 className="absolute bottom-0 left-0 right-0 h-[3px] rounded-b-2xl"
                 style={{ background: card.color }}
@@ -206,7 +177,7 @@ export function Hero() {
         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
       >
         <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-ink-muted">
-          Scroll
+          {tr(t.hero.scroll)}
         </span>
         <ChevronDown className="size-4 text-ink-muted" />
       </motion.div>

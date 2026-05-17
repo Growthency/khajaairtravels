@@ -6,8 +6,11 @@ import { Container } from "@/components/shared/Container";
 import { WA } from "@/lib/utils";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function CtaBand() {
+  const { tr } = useLang();
   return (
     <section className="section-pad relative overflow-hidden bg-ink text-white">
       <GradientBlob color="sky" size="xl" className="-left-32 -top-24" opacity={0.28} />
@@ -34,13 +37,13 @@ export function CtaBand() {
               className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:bg-emerald-600 hover:-translate-y-0.5 transition-all"
             >
               <WhatsAppIcon size={16} />
-              WhatsApp our desk
+              {tr(t.cta.whatsappDesk)}
             </a>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/20 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"
             >
-              Visit our office
+              {tr(t.cta.visitOffice)}
               <ArrowRight className="size-4" />
             </Link>
           </div>

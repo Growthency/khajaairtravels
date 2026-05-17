@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { SITE, WA } from "@/lib/utils";
@@ -5,9 +7,16 @@ import { services } from "@/lib/data/services";
 import { branches } from "@/lib/data/branches";
 import { Logo } from "@/components/shared/Logo";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { tr } = useLang();
+  const serviceLabel = (slug: string, fallback: string) => {
+    const key = slug as keyof typeof t.service;
+    return t.service[key] ? tr(t.service[key]) : fallback;
+  };
 
   return (
     <footer className="relative overflow-hidden bg-ink text-white">
@@ -37,17 +46,17 @@ export function Footer() {
               </div>
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-white/70 max-w-md">
-              {SITE.name} is a Government Approved Hajj agency and full-service travel house — Hajj &amp; Umrah, air ticketing, visa processing, hotel booking and curated tour packages from Bangladesh since 2003.
+              {tr(t.footer.tagline)}
             </p>
             <div className="mt-6 flex flex-wrap gap-2.5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-emerald-300 ring-1 ring-emerald-400/20">
-                <ShieldCheck className="size-3.5" /> MoRA Approved
+                <ShieldCheck className="size-3.5" /> {tr(t.footer.badges.mora)}
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-sky-300 ring-1 ring-sky-400/20">
-                IATA Verified
+                {tr(t.footer.badges.iata)}
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-saffron-300 ring-1 ring-saffron-400/20">
-                HAAB Member
+                {tr(t.footer.badges.haab)}
               </span>
             </div>
             <div className="mt-7 flex gap-3">
@@ -72,12 +81,12 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">Services</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">{tr(t.footer.services)}</h3>
             <ul className="mt-4 space-y-2.5">
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="text-sm text-white/75 hover:text-white">
-                    {s.title}
+                    {serviceLabel(s.slug, s.title)}
                   </Link>
                 </li>
               ))}
@@ -85,7 +94,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">Our Branches</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">{tr(t.footer.branches)}</h3>
             <ul className="mt-4 space-y-2.5">
               {branches.map((b) => (
                 <li key={b.slug}>
@@ -95,14 +104,14 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-white/55">Company</h3>
+            <h3 className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-white/55">{tr(t.footer.company)}</h3>
             <ul className="mt-4 space-y-2.5">
               {[
-                { label: "About Us", href: "/about" },
-                { label: "Blog", href: "/blog" },
-                { label: "Gallery", href: "/gallery" },
-                { label: "FAQ", href: "/faq" },
-                { label: "Contact", href: "/contact" }
+                { label: tr(t.footer.aboutUs), href: "/about" },
+                { label: tr(t.footer.blog),    href: "/blog" },
+                { label: tr(t.footer.gallery), href: "/gallery" },
+                { label: tr(t.footer.faq),     href: "/faq" },
+                { label: tr(t.footer.contactLi), href: "/contact" }
               ].map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="text-sm text-white/75 hover:text-white">
@@ -114,7 +123,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">Contact</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white/55">{tr(t.footer.contact)}</h3>
             <ul className="mt-4 space-y-3.5 text-sm">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-sky-300" />
@@ -150,17 +159,17 @@ export function Footer() {
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
             >
               <WhatsAppIcon size={16} />
-              Chat on WhatsApp
+              {tr(t.cta.chatOnWhatsapp)}
             </a>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-7 sm:flex-row">
           <p className="text-xs text-white/50">
-            © {year} {SITE.name}. All rights reserved. Proprietor: {SITE.proprietor}.
+            © {year} {SITE.name}. {tr(t.footer.rights)} {tr(t.footer.proprietor)}: {SITE.proprietor}.
           </p>
           <p className="text-xs text-white/45">
-            Crafted with care in Dhaka — for travellers from every corner of Bangladesh.
+            {tr(t.footer.crafted)}
           </p>
         </div>
       </div>
