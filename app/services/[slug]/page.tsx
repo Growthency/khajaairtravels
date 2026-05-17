@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ArrowRight, Check, MessageCircle, Phone, ChevronRight } from "lucide-react";
+import { ArrowRight, Check, Phone, ChevronRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { Container } from "@/components/shared/Container";
 import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
@@ -164,7 +165,7 @@ export default function ServicePage({ params }: Props) {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
                       >
-                        <MessageCircle className="size-4" />
+                        <WhatsAppIcon size={16} />
                         WhatsApp this desk
                       </a>
                       <a

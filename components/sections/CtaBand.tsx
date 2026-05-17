@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { WA } from "@/lib/utils";
 import { GradientBlob } from "@/components/effects/GradientBlob";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 
 export function CtaBand() {
   return (
@@ -32,7 +33,7 @@ export function CtaBand() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:bg-emerald-600 hover:-translate-y-0.5 transition-all"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon size={16} />
               WhatsApp our desk
             </a>
             <Link

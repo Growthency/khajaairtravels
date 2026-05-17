@@ -119,7 +119,7 @@ export const posts: Post[] = [
     excerpt:
       "The 60-day UAE tourist visa is one of the most popular travel choices for Bangladeshi families. Here is exactly which documents you need, the realistic processing time, and how to avoid the three most common rejection reasons.",
     cover:
-      "https://images.unsplash.com/photo-1582547092063-1f234f3b3aa1?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80",
     coverAlt: "Skyline of Dubai with Burj Khalifa at twilight",
     category: "Visa",
     author: { name: "Sumaiya Khan", role: "Senior Visa Officer, Khaja Air Travels" },
@@ -165,7 +165,7 @@ export const posts: Post[] = [
     excerpt:
       "Gulmarg in snow, a shikara ride at sunrise, kahwa tea at a houseboat — winter Kashmir is something every Bangladeshi traveller should experience once. This is the itinerary we recommend after booking 400+ Kashmir tours.",
     cover:
-      "https://images.unsplash.com/photo-1620766182966-c1b6a0c6a8b3?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1400&q=80",
     coverAlt: "Snow-covered houses in Kashmir valley",
     category: "Tours",
     author: { name: "Rakib Hasan", role: "Tour Operations Lead, Khaja Air Travels" },
@@ -220,7 +220,7 @@ export const posts: Post[] = [
     excerpt:
       "Halal-friendly, family-tested and rich in Islamic history — our 8-day Turkey itinerary covers the Blue Mosque, hot-air balloons at sunrise, the white travertines of Pamukkale, and ends with the Bosphorus dinner cruise.",
     cover:
-      "https://images.unsplash.com/photo-1641985657281-e6e83ce9c184?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1400&q=80",
     coverAlt: "Hot air balloons over the Cappadocia valley at sunrise",
     category: "Tours",
     author: { name: "Tahsin Mahmud", role: "Senior Travel Consultant, Khaja Air Travels" },

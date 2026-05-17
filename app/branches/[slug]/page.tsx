@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ArrowRight, Check, ChevronRight, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, MapPin, Phone, Mail } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/shared/Container";
 import { Reveal } from "@/components/effects/Reveal";
@@ -166,7 +167,7 @@ export default function BranchPage({ params }: Props) {
                         rel="noopener noreferrer"
                         className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
                       >
-                        <MessageCircle className="size-4" />
+                        <WhatsAppIcon size={16} />
                         WhatsApp the desk
                       </a>
                     </div>

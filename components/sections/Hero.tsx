@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, MessageCircle, ChevronDown, Plane, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Plane, ShieldCheck, Sparkles } from "lucide-react";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { TypeWriter } from "@/components/effects/TypeWriter";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { GlobeOrbit } from "@/components/effects/GlobeOrbit";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { WA, SITE } from "@/lib/utils";
 
 const floatingCards = [
@@ -129,7 +130,7 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-ink/10 bg-white/70 px-6 py-3.5 text-sm font-semibold text-ink hover:border-emerald-500 hover:text-emerald-700 transition-all backdrop-blur"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon size={16} />
                 WhatsApp our desk
               </a>
             </MagneticButton>

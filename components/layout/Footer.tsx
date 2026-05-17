@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle, Clock, ShieldCheck, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ShieldCheck, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { SITE, WA } from "@/lib/utils";
 import { services } from "@/lib/data/services";
 import { branches } from "@/lib/data/branches";
 import { Logo } from "@/components/shared/Logo";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -148,7 +149,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon size={16} />
               Chat on WhatsApp
             </a>
           </div>

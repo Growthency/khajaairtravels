@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock, MessageCircle, Building2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Building2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/shared/Container";
 import { Reveal } from "@/components/effects/Reveal";
@@ -93,7 +94,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-ink hover:bg-paper-2"
                     >
-                      <MessageCircle className="size-4 text-emerald-600" />
+                      <WhatsAppIcon size={16} className="text-emerald-600" />
                       Chat on WhatsApp
                     </a>
                   </div>

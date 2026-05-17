@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle, Phone, ChevronDown, MapPin, Mail } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, MapPin, Mail } from "lucide-react";
 import { cn, SITE, WA } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { services } from "@/lib/data/services";
 import { branches } from "@/lib/data/branches";
 
@@ -196,7 +197,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_rgba(5,150,105,0.55)] hover:from-emerald-700 hover:to-emerald-800 hover:-translate-y-0.5 transition-all"
             >
-              <MessageCircle className="size-4" />
+              <WhatsAppIcon size={16} />
               WhatsApp
             </a>
           </div>
@@ -295,7 +296,7 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white"
               >
-                <MessageCircle className="size-4" />
+                <WhatsAppIcon size={16} />
                 WhatsApp Us
               </a>
             </div>

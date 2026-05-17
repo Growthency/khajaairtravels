@@ -37,7 +37,7 @@ export const gallery: GalleryItem[] = [
     title: "Ramadan Umrah jamaat",
     caption: "21-day Ramadan group at Hilton Suites, Makkah.",
     category: "Umrah",
-    src: "https://images.unsplash.com/photo-1646567620566-78cf1cd5f2a3?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80",
     alt: "Family group at the lobby of a Makkah hotel"
   },
   {
@@ -45,7 +45,7 @@ export const gallery: GalleryItem[] = [
     title: "Shikara ride on Dal Lake",
     caption: "Kashmir 6N family tour, October 2024.",
     category: "Tours",
-    src: "https://images.unsplash.com/photo-1620766182966-c1b6a0c6a8b3?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1606298855672-3efb63017be8?auto=format&fit=crop&w=1200&q=80",
     alt: "Shikara boats on Dal Lake, Srinagar"
   },
   {
@@ -53,7 +53,7 @@ export const gallery: GalleryItem[] = [
     title: "Cappadocia balloons",
     caption: "Honeymoon couple at sunrise, Goreme valley, Turkey.",
     category: "Tours",
-    src: "https://images.unsplash.com/photo-1641985657281-e6e83ce9c184?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1200&q=80",
     alt: "Hot air balloons over Cappadocia at sunrise"
   },
   {
