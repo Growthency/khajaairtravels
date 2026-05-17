@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { LANGS } from "@/lib/i18n/translations";
 import { cn } from "@/lib/utils";
 
 export function LanguageToggle({ className }: { className?: string }) {
-  const { lang, setLang } = useLang();
+  const { lang, switchHref } = useLang();
 
   return (
     <div
@@ -19,11 +20,11 @@ export function LanguageToggle({ className }: { className?: string }) {
       {LANGS.map((l) => {
         const active = lang === l.code;
         return (
-          <button
+          <Link
             key={l.code}
-            type="button"
-            onClick={() => setLang(l.code)}
-            aria-pressed={active}
+            href={switchHref(l.code)}
+            prefetch={false}
+            aria-current={active ? "true" : undefined}
             aria-label={`Switch to ${l.full}`}
             className={cn(
               "rounded-full px-2.5 py-1.5 transition-colors",
@@ -33,7 +34,7 @@ export function LanguageToggle({ className }: { className?: string }) {
             )}
           >
             {l.label}
-          </button>
+          </Link>
         );
       })}
     </div>

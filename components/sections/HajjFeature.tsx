@@ -8,17 +8,21 @@ import { Container } from "@/components/shared/Container";
 import { Badge } from "@/components/shared/Badge";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { ParallaxFloater } from "@/components/effects/ParallaxFloater";
-
-const features = [
-  { icon: ShieldCheck, label: "Govt. approved", desc: "Hajj Licence No-0252 from MoRA" },
-  { icon: MapPin, label: "Hotels near Haram", desc: "250m – 900m from Bab Marwah / Bab Fahd" },
-  { icon: Plane, label: "Direct flights", desc: "Biman, Saudia, Flynas — preferred routing" },
-  { icon: BookOpen, label: "Bangla Mu'allim", desc: "Daily orientation, Hajj manasik in Bangla" },
-  { icon: BedDouble, label: "Mina Maktab", desc: "Reserved early to secure better tents" },
-  { icon: HeartHandshake, label: "Family khedmat", desc: "Single point of contact for the journey" }
-];
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function HajjFeature() {
+  const { tr } = useLang();
+  const lh = useLocaleHref();
+  const features = [
+    { icon: ShieldCheck,    label: tr(t.sections.hajj.f1.l), desc: tr(t.sections.hajj.f1.d) },
+    { icon: MapPin,         label: tr(t.sections.hajj.f2.l), desc: tr(t.sections.hajj.f2.d) },
+    { icon: Plane,          label: tr(t.sections.hajj.f3.l), desc: tr(t.sections.hajj.f3.d) },
+    { icon: BookOpen,       label: tr(t.sections.hajj.f4.l), desc: tr(t.sections.hajj.f4.d) },
+    { icon: BedDouble,      label: tr(t.sections.hajj.f5.l), desc: tr(t.sections.hajj.f5.d) },
+    { icon: HeartHandshake, label: tr(t.sections.hajj.f6.l), desc: tr(t.sections.hajj.f6.d) }
+  ];
+
   return (
     <section className="relative overflow-hidden bg-ink py-24 text-white md:py-28">
       <GradientBlob color="emerald" size="xl" className="-left-40 -top-40" opacity={0.22} />
@@ -37,13 +41,14 @@ export function HajjFeature() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <Badge tone="emerald" className="bg-emerald-500/15 text-emerald-300 ring-emerald-400/30">
-              Our Flagship Service
+              {tr(t.sections.hajj.kicker)}
             </Badge>
             <h2 className="mt-5 font-display text-[34px] font-bold leading-[1.08] tracking-tight md:text-[48px]">
-              Hajj &amp; Umrah, performed the way <span className="gradient-text-shimmer">it should be</span>.
+              {tr(t.sections.hajj.titleA)}{" "}
+              <span className="gradient-text-shimmer">{tr(t.sections.hajj.titleB)}</span>
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              From the day you bring your passport to our Uttara office to the day you return home with a Hajj certificate in your hand, every step is planned, every cost is itemised, and a Bangla-speaking khadem stays with the group through every ritual.
+              {tr(t.sections.hajj.sub)}
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -71,17 +76,17 @@ export function HajjFeature() {
 
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                href="/services/hajj-umrah"
+                href={lh("/services/hajj-umrah")}
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-ink shadow-glow hover:bg-emerald-50"
               >
-                See full Hajj &amp; Umrah package
+                {tr(t.sections.hajj.ctaSee)}
                 <ArrowRight className="size-4" />
               </Link>
               <Link
-                href="/contact"
+                href={lh("/contact")}
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
               >
-                Book a free consultation
+                {tr(t.sections.hajj.ctaBook)}
               </Link>
             </div>
           </div>
@@ -92,36 +97,35 @@ export function HajjFeature() {
               <div className="relative h-full w-full overflow-hidden rounded-[34px] ring-1 ring-white/15">
                 <Image
                   src="/images/hero/hajj-feature.webp"
-                  alt="Pilgrims at Masjid al-Haram performing Tawaf"
+                  alt={tr({ en: "Pilgrims at Masjid al-Haram performing Tawaf", bn: "মসজিদ আল-হারামে তাওয়াফরত হাজীরা" })}
                   fill
                   sizes="(min-width: 1024px) 400px, 80vw"
                   className="object-cover"
-                  priority={false}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/60 to-transparent p-6">
                   <div className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300">
-                    Hajj 1447 H
+                    {tr(t.sections.hajj.tagSeason)}
                   </div>
                   <div className="mt-1 font-display text-2xl font-bold text-white">
-                    Quota now open
+                    {tr(t.sections.hajj.tagOpen)}
                   </div>
                   <div className="mt-1 text-sm text-white/75">
-                    Hotel within 280m of Bab Marwah, direct Biman flight.
+                    {tr(t.sections.hajj.tagDist)}
                   </div>
                 </div>
               </div>
 
               <div className="absolute -bottom-6 -left-6 rotate-[-6deg] rounded-2xl border border-white/15 bg-ink/80 p-4 shadow-2xl backdrop-blur">
                 <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                  11,000+ pilgrims
+                  {tr(t.sections.hajj.tagPil)}
                 </div>
-                <div className="mt-1 text-sm font-semibold text-white">since 2003</div>
+                <div className="mt-1 text-sm font-semibold text-white">{tr(t.sections.hajj.tagSince)}</div>
               </div>
               <div className="absolute -right-6 -top-6 rotate-[6deg] rounded-2xl border border-white/15 bg-ink/80 p-4 shadow-2xl backdrop-blur">
                 <div className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-300">
-                  Bangla Mu'allim
+                  {tr(t.sections.hajj.tagMu)}
                 </div>
-                <div className="mt-1 text-sm font-semibold text-white">on every group</div>
+                <div className="mt-1 text-sm font-semibold text-white">{tr(t.sections.hajj.tagGroup)}</div>
               </div>
             </div>
           </ParallaxFloater>

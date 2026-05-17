@@ -3,20 +3,18 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { SITE, WA } from "@/lib/utils";
-import { services } from "@/lib/data/services";
-import { branches } from "@/lib/data/branches";
 import { Logo } from "@/components/shared/Logo";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
-import { useLang } from "@/components/providers/LanguageProvider";
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
+import { useServices, useBranches } from "@/lib/i18n/data";
 import { t } from "@/lib/i18n/translations";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { tr } = useLang();
-  const serviceLabel = (slug: string, fallback: string) => {
-    const key = slug as keyof typeof t.service;
-    return t.service[key] ? tr(t.service[key]) : fallback;
-  };
+  const { tr, lang } = useLang();
+  const lh = useLocaleHref();
+  const services = useServices();
+  const branches = useBranches();
 
   return (
     <footer className="relative overflow-hidden bg-ink text-white">
@@ -32,16 +30,20 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-3" aria-label={`${SITE.name} home`}>
+            <Link href={lh("/")} className="inline-flex items-center gap-3" aria-label={`${SITE.name} home`}>
               <span className="grid size-12 place-items-center rounded-2xl bg-white p-1.5">
                 <Logo size={40} />
               </span>
               <div className="leading-tight">
                 <div className="font-display text-[18px] font-bold tracking-tight">
-                  Khaja <span className="text-sky-300">Air</span> Travels
+                  {lang === "bn" ? (
+                    <>খাজা <span className="text-sky-300">এয়ার</span> ট্র্যাভেলস</>
+                  ) : (
+                    <>Khaja <span className="text-sky-300">Air</span> Travels</>
+                  )}
                 </div>
                 <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/55 mt-0.5">
-                  Licence No-{SITE.licence}
+                  {lang === "bn" ? "লাইসেন্স নং-০২৫২" : `Licence No-${SITE.licence}`}
                 </div>
               </div>
             </Link>
@@ -85,8 +87,8 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="text-sm text-white/75 hover:text-white">
-                    {serviceLabel(s.slug, s.title)}
+                  <Link href={lh(`/services/${s.slug}`)} className="text-sm text-white/75 hover:text-white">
+                    {s.title}
                   </Link>
                 </li>
               ))}
@@ -98,7 +100,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {branches.map((b) => (
                 <li key={b.slug}>
-                  <Link href={`/branches/${b.slug}`} className="text-sm text-white/75 hover:text-white">
+                  <Link href={lh(`/branches/${b.slug}`)} className="text-sm text-white/75 hover:text-white">
                     {b.title}
                   </Link>
                 </li>
@@ -114,7 +116,7 @@ export function Footer() {
                 { label: tr(t.footer.contactLi), href: "/contact" }
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/75 hover:text-white">
+                  <Link href={lh(l.href)} className="text-sm text-white/75 hover:text-white">
                     {l.label}
                   </Link>
                 </li>

@@ -8,9 +8,8 @@ import { Menu, X, Phone, ChevronDown, MapPin, Mail } from "lucide-react";
 import { cn, SITE, WA } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
-import { services } from "@/lib/data/services";
-import { branches } from "@/lib/data/branches";
-import { useLang } from "@/components/providers/LanguageProvider";
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
+import { useServices, useBranches } from "@/lib/i18n/data";
 import { t } from "@/lib/i18n/translations";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 
@@ -19,12 +18,12 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const pathname = usePathname();
-  const { tr } = useLang();
+  const { tr, lang } = useLang();
+  const lh = useLocaleHref();
+  const services = useServices();
+  const branches = useBranches();
 
-  const serviceLabel = (slug: string, fallback: string) => {
-    const key = slug as keyof typeof t.service;
-    return t.service[key] ? tr(t.service[key]) : fallback;
-  };
+  const stripped = pathname?.replace(/^\/bn(?=\/|$)/, "") || "/";
 
   const nav = [
     { label: tr(t.nav.home), href: "/" },
@@ -33,7 +32,7 @@ export function Header() {
       label: tr(t.nav.services),
       href: "/services",
       items: services.map((s) => ({
-        label: serviceLabel(s.slug, s.title),
+        label: s.title,
         href: `/services/${s.slug}`,
         desc: s.short,
         icon: s.icon
@@ -110,21 +109,25 @@ export function Header() {
             scrolled ? "h-16" : "h-20"
           )}
         >
-          <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
+          <Link href={lh("/")} className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
             <Logo size={scrolled ? 40 : 48} />
             <div className="leading-tight">
               <div className="font-display text-[17px] font-bold text-ink tracking-tight">
-                Khaja <span className="text-sky-700">Air</span> Travels
+                {lang === "bn" ? (
+                  <>খাজা <span className="text-sky-700">এয়ার</span> ট্র্যাভেলস</>
+                ) : (
+                  <>Khaja <span className="text-sky-700">Air</span> Travels</>
+                )}
               </div>
               <div className="text-[9.5px] font-semibold uppercase tracking-[0.22em] text-ink-muted mt-0.5">
-                Licence No-{SITE.licence}
+                {lang === "bn" ? "লাইসেন্স নং-০২৫২" : `Licence No-${SITE.licence}`}
               </div>
             </div>
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
             {nav.map((link) => {
-              const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const active = stripped === link.href || (link.href !== "/" && stripped.startsWith(link.href));
               const hasMega = !!link.items;
               return (
                 <li
@@ -134,7 +137,7 @@ export function Header() {
                   onMouseLeave={() => hasMega && setOpenMega(null)}
                 >
                   <Link
-                    href={link.href}
+                    href={lh(link.href)}
                     className={cn(
                       "inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
                       active
@@ -167,7 +170,7 @@ export function Header() {
                             {link.items!.map((item) => (
                               <Link
                                 key={item.href}
-                                href={item.href}
+                                href={lh(item.href)}
                                 className="group flex items-start gap-3 rounded-xl px-3 py-3 hover:bg-paper-2 transition-colors"
                               >
                                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-sky-50 to-emerald-50 text-xl">
@@ -184,10 +187,10 @@ export function Header() {
                           </div>
                           <div className="mt-2 border-t border-border pt-3">
                             <Link
-                              href={link.href}
+                              href={lh(link.href)}
                               className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-700 hover:text-sky-800"
                             >
-                              View all {link.label.toLowerCase()} →
+                              {lang === "bn" ? `সব ${link.label} →` : `View all ${link.label.toLowerCase()} →`}
                             </Link>
                           </div>
                         </div>
@@ -235,9 +238,11 @@ export function Header() {
             className="fixed inset-0 z-[60] flex flex-col bg-white"
           >
             <div className="flex items-center justify-between border-b border-border px-5 h-16">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
+              <Link href={lh("/")} onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
                 <Logo size={36} />
-                <span className="font-display text-base font-bold text-ink">Khaja Air Travels</span>
+                <span className="font-display text-base font-bold text-ink">
+                  {lang === "bn" ? "খাজা এয়ার ট্র্যাভেলস" : "Khaja Air Travels"}
+                </span>
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
@@ -254,10 +259,10 @@ export function Header() {
                   return (
                     <Link
                       key={link.href}
-                      href={link.href}
+                      href={lh(link.href)}
                       className={cn(
                         "block rounded-xl px-4 py-3.5 text-base font-semibold",
-                        pathname === link.href ? "bg-sky-50 text-sky-700" : "text-ink hover:bg-paper-2"
+                        stripped === link.href ? "bg-sky-50 text-sky-700" : "text-ink hover:bg-paper-2"
                       )}
                     >
                       {link.label}
@@ -272,15 +277,15 @@ export function Header() {
                     </summary>
                     <div className="ml-2 mt-1 space-y-1 border-l-2 border-sky-100 pl-3">
                       <Link
-                        href={link.href}
+                        href={lh(link.href)}
                         className="block rounded-lg px-3 py-2 text-sm font-medium text-sky-700 hover:bg-sky-50"
                       >
-                        View all {link.label.toLowerCase()}
+                        {lang === "bn" ? `সব ${link.label}` : `View all ${link.label.toLowerCase()}`}
                       </Link>
                       {link.items!.map((item) => (
                         <Link
                           key={item.href}
-                          href={item.href}
+                          href={lh(item.href)}
                           className="flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-paper-2"
                         >
                           <span className="text-lg">{item.icon}</span>

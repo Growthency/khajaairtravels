@@ -4,46 +4,30 @@ import { motion } from "framer-motion";
 import { MessageSquare, FileCheck2, Plane, HeartHandshake } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-
-const steps = [
-  {
-    icon: MessageSquare,
-    label: "Talk",
-    title: "Tell us what you need",
-    body: "Walk into our Uttara office, call us or WhatsApp. We listen first, ask about your dates, budget and preferences."
-  },
-  {
-    icon: FileCheck2,
-    label: "Plan",
-    title: "We design and quote",
-    body: "Within 24 hours you get a clear, itemised quote — no hidden fees. We hold flights and rooms for 72 hours at no cost."
-  },
-  {
-    icon: Plane,
-    label: "Travel",
-    title: "We handle every detail",
-    body: "Visa, ticket, hotel, transport, guide — issued and confirmed. You receive printed itineraries the day before departure."
-  },
-  {
-    icon: HeartHandshake,
-    label: "Aftercare",
-    title: "Khedmat continues",
-    body: "From WhatsApp support on the trip to a post-Hajj follow up call, we stay in touch. Many of our pilgrims become friends."
-  }
-];
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function Process() {
+  const { tr } = useLang();
+  const steps = [
+    { icon: MessageSquare, label: tr(t.sections.process.s1l), title: tr(t.sections.process.s1t), body: tr(t.sections.process.s1b) },
+    { icon: FileCheck2,    label: tr(t.sections.process.s2l), title: tr(t.sections.process.s2t), body: tr(t.sections.process.s2b) },
+    { icon: Plane,         label: tr(t.sections.process.s3l), title: tr(t.sections.process.s3t), body: tr(t.sections.process.s3b) },
+    { icon: HeartHandshake,label: tr(t.sections.process.s4l), title: tr(t.sections.process.s4t), body: tr(t.sections.process.s4b) }
+  ];
+
   return (
     <section className="section-pad relative overflow-hidden">
       <Container>
         <SectionHeader
-          kicker="How we work"
+          kicker={tr(t.sections.process.kicker)}
           title={
             <>
-              Four simple steps. <span className="gradient-text">Zero stress.</span>
+              {tr(t.sections.process.titleA)}{" "}
+              <span className="gradient-text">{tr(t.sections.process.titleB)}</span>
             </>
           }
-          subtitle="We refuse to make booking a trip feel like a paperwork war. Here is what working with us actually looks like."
+          subtitle={tr(t.sections.process.sub)}
           tone="sky"
         />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -70,10 +54,7 @@ export function Process() {
                 <h3 className="mt-1 font-display text-lg font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
                 {i < steps.length - 1 && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute right-[-24px] top-1/2 hidden h-px w-12 bg-gradient-to-r from-sky-300 to-transparent lg:block"
-                  />
+                  <div aria-hidden="true" className="absolute right-[-24px] top-1/2 hidden h-px w-12 bg-gradient-to-r from-sky-300 to-transparent lg:block" />
                 )}
               </motion.div>
             );

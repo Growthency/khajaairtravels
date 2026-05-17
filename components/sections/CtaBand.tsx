@@ -6,11 +6,12 @@ import { Container } from "@/components/shared/Container";
 import { WA } from "@/lib/utils";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
-import { useLang } from "@/components/providers/LanguageProvider";
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
 import { t } from "@/lib/i18n/translations";
 
 export function CtaBand() {
   const { tr } = useLang();
+  const lh = useLocaleHref();
   return (
     <section className="section-pad relative overflow-hidden bg-ink text-white">
       <GradientBlob color="sky" size="xl" className="-left-32 -top-24" opacity={0.28} />
@@ -20,14 +21,14 @@ export function CtaBand() {
       <Container>
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-300">
-            Ready when you are
+            {tr(t.sections.cta.kicker)}
           </p>
           <h2 className="mt-4 font-display text-[34px] font-bold leading-tight tracking-tight md:text-5xl">
-            One conversation. One trusted partner. <br className="hidden md:block" />
-            <span className="gradient-text-shimmer">A lifetime of journeys.</span>
+            {tr(t.sections.cta.titleA)} <br className="hidden md:block" />
+            <span className="gradient-text-shimmer">{tr(t.sections.cta.titleB)}</span>
           </h2>
           <p className="mt-5 text-base text-white/75 md:text-lg">
-            Walk into our Uttara office, call us, or just say "Assalamu Alaikum" on WhatsApp. We will take it from there.
+            {tr(t.sections.cta.sub)}
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <a
@@ -40,7 +41,7 @@ export function CtaBand() {
               {tr(t.cta.whatsappDesk)}
             </a>
             <Link
-              href="/contact"
+              href={lh("/contact")}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/20 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"
             >
               {tr(t.cta.visitOffice)}

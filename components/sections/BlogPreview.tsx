@@ -4,13 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { posts } from "@/lib/data/posts";
 import { Container } from "@/components/shared/Container";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { formatDate, readingTime } from "@/lib/utils";
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
+import { usePosts } from "@/lib/i18n/data";
+import { t } from "@/lib/i18n/translations";
 
 export function BlogPreview() {
+  const { tr, lang } = useLang();
+  const lh = useLocaleHref();
+  const posts = usePosts();
   const featured = [...posts].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1)).slice(0, 3);
+  const locale = lang === "bn" ? "bn-BD" : "en-GB";
 
   return (
     <section className="section-pad">
@@ -18,20 +24,21 @@ export function BlogPreview() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeader
             align="left"
-            kicker="From the journal"
+            kicker={tr(t.sections.blog.kicker)}
             title={
               <>
-                Travel notes from the <span className="gradient-text">Khaja desk</span>.
+                {tr(t.sections.blog.titleA)}{" "}
+                <span className="gradient-text">{tr(t.sections.blog.titleB)}</span>
               </>
             }
-            subtitle="Honest, practical writing from our Hajj, Visa and Tours teams. New article every fortnight."
+            subtitle={tr(t.sections.blog.sub)}
             tone="sky"
           />
           <Link
-            href="/blog"
+            href={lh("/blog")}
             className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-semibold text-ink hover:border-sky-500 hover:text-sky-700"
           >
-            All articles
+            {tr(t.sections.blog.all)}
             <ArrowUpRight className="size-4" />
           </Link>
         </div>
@@ -46,7 +53,7 @@ export function BlogPreview() {
               transition={{ duration: 0.55, delay: i * 0.06 }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
             >
-              <Link href={`/blog/${p.slug}`} className="relative aspect-[16/10] overflow-hidden">
+              <Link href={lh(`/blog/${p.slug}`)} className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={p.cover}
                   alt={p.coverAlt}
@@ -64,10 +71,10 @@ export function BlogPreview() {
                   <span>{formatDate(p.publishedAt)}</span>
                   <span className="inline-flex items-center gap-1">
                     <Clock className="size-3" />
-                    {readingTime(p.content)}
+                    {readingTime(p.content).replace("min read", tr(t.sections.blog.minRead))}
                   </span>
                 </div>
-                <Link href={`/blog/${p.slug}`}>
+                <Link href={lh(`/blog/${p.slug}`)}>
                   <h3 className="mt-3 font-display text-xl font-bold leading-snug text-ink transition-colors group-hover:text-sky-700">
                     {p.title}
                   </h3>
@@ -76,10 +83,10 @@ export function BlogPreview() {
                   {p.excerpt}
                 </p>
                 <Link
-                  href={`/blog/${p.slug}`}
+                  href={lh(`/blog/${p.slug}`)}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-700"
                 >
-                  Read article
+                  {tr(t.sections.blog.read)}
                   <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>

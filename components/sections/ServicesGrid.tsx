@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
-import { services } from "@/lib/data/services";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Container } from "@/components/shared/Container";
 import { cn } from "@/lib/utils";
+import { useLang, useLocaleHref } from "@/components/providers/LanguageProvider";
+import { useServices } from "@/lib/i18n/data";
+import { t } from "@/lib/i18n/translations";
 
 const tones = {
   sky: {
@@ -33,18 +35,23 @@ const tones = {
 } as const;
 
 export function ServicesGrid() {
+  const { tr } = useLang();
+  const lh = useLocaleHref();
+  const services = useServices();
+
   return (
     <section className="section-pad relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-grid-soft [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_85%)]" />
       <Container>
         <SectionHeader
-          kicker="What we do"
+          kicker={tr(t.sections.services.kicker)}
           title={
             <>
-              Five desks. One promise: <span className="gradient-text">khedmat</span> over upsell.
+              {tr(t.sections.services.titleA)}{" "}
+              <span className="gradient-text">{tr(t.sections.services.titleB)}</span>
             </>
           }
-          subtitle="Every desk in our Uttara office is run by an experienced team lead. No call centre. No bouncing between agents. The person who answers the phone is the person who closes your file."
+          subtitle={tr(t.sections.services.sub)}
           tone="emerald"
         />
 
@@ -70,8 +77,8 @@ export function ServicesGrid() {
                     {s.icon}
                   </div>
                   <Link
-                    href={`/services/${s.slug}`}
-                    aria-label={`Explore ${s.title}`}
+                    href={lh(`/services/${s.slug}`)}
+                    aria-label={s.title}
                     className={cn(
                       "grid size-10 place-items-center rounded-full bg-white shadow-sm ring-1 ring-inset ring-border transition-all duration-300",
                       tone.arrow

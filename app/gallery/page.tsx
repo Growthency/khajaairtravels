@@ -7,25 +7,31 @@ import { X } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/shared/Container";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { gallery, galleryCategories } from "@/lib/data/gallery";
+import { galleryCategories } from "@/lib/data/gallery";
+import { useGallery, useGalleryCategoryLabel } from "@/lib/i18n/data";
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 import { cn } from "@/lib/utils";
 
 export default function GalleryPage() {
+  const { tr } = useLang();
+  const labelOf = useGalleryCategoryLabel();
+  const items = useGallery();
   const [filter, setFilter] = useState<(typeof galleryCategories)[number]>("All");
   const [active, setActive] = useState<string | null>(null);
-  const items = filter === "All" ? gallery : gallery.filter((g) => g.category === filter);
-  const open = active ? gallery.find((g) => g.id === active) : null;
+  const filtered = filter === "All" ? items : items.filter((g) => g.category === filter);
+  const open = active ? items.find((g) => g.id === active) : null;
 
   return (
     <>
       <PageHero
-        kicker="Gallery"
+        kicker={tr(t.page.gallery.kicker)}
         title={
           <>
-            Moments from <span className="gradient-text">our journeys.</span>
+            {tr(t.page.gallery.titleA)} <span className="gradient-text">{tr(t.page.gallery.titleB)}</span>
           </>
         }
-        subtitle="Snapshots from Hajj seasons, Umrah groups, family tours and a typical morning in our Uttara office. Every photograph here is from a real Khaja Air Travels trip."
+        subtitle={tr(t.page.gallery.sub)}
         tone="emerald"
       />
 
@@ -43,13 +49,13 @@ export default function GalleryPage() {
                     : "border border-border bg-white text-ink-soft hover:border-sky-500 hover:text-sky-700"
                 )}
               >
-                {c}
+                {labelOf(c)}
               </button>
             ))}
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {items.map((g, i) => (
+            {filtered.map((g, i) => (
               <motion.button
                 key={g.id}
                 onClick={() => setActive(g.id)}
@@ -68,7 +74,7 @@ export default function GalleryPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-3 text-left">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
-                    {g.category}
+                    {labelOf(g.category)}
                   </div>
                   <div className="mt-0.5 line-clamp-1 text-sm font-semibold text-white">{g.title}</div>
                 </div>
@@ -96,7 +102,7 @@ export default function GalleryPage() {
             >
               <button
                 onClick={() => setActive(null)}
-                aria-label="Close"
+                aria-label={tr(t.page.gallery.close)}
                 className="absolute right-3 top-3 z-10 grid size-9 place-items-center rounded-full bg-white text-ink shadow-card"
               >
                 <X className="size-4" />
@@ -105,9 +111,7 @@ export default function GalleryPage() {
                 <Image src={open.src} alt={open.alt} fill sizes="800px" className="object-cover" />
               </div>
               <div className="p-6">
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-700">
-                  {open.category}
-                </div>
+                <div className="text-xs font-bold uppercase tracking-wider text-sky-700">{labelOf(open.category)}</div>
                 <h3 className="mt-1.5 font-display text-xl font-bold text-ink">{open.title}</h3>
                 <p className="mt-2 text-sm text-ink-muted">{open.caption}</p>
               </div>

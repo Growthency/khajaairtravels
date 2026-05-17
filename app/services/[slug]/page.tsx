@@ -8,10 +8,12 @@ import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { services, getService } from "@/lib/data/services";
+import { services } from "@/lib/data/services";
 import { SITE, WA, cn } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
+import { getServerLang, getServerService, serverTr, localePath } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/translations";
 
 type Props = { params: { slug: string } };
 
@@ -20,7 +22,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const s = getService(params.slug);
+  const s = getServerService(params.slug);
   if (!s) return { title: "Service not found" };
   return {
     title: s.meta.title,
@@ -31,40 +33,33 @@ export function generateMetadata({ params }: Props): Metadata {
 }
 
 export default function ServicePage({ params }: Props) {
-  const service = getService(params.slug);
+  const lang = getServerLang();
+  const service = getServerService(params.slug, lang);
+  const allServices = services;
   if (!service) notFound();
 
   const tone = service.accent;
-  const accentText =
-    tone === "sky"
-      ? "text-sky-700"
-      : tone === "emerald"
-        ? "text-emerald-700"
-        : "text-saffron-700";
-  const accentBg =
-    tone === "sky"
-      ? "from-sky-50 to-white ring-sky-200"
-      : tone === "emerald"
-        ? "from-emerald-50 to-white ring-emerald-200"
-        : "from-saffron-50 to-white ring-saffron-200";
-  const waLink =
-    service.slug === "hajj-umrah"
-      ? WA.hajj
-      : service.slug === "air-ticketing"
-        ? WA.ticket
-        : service.slug === "visa-processing"
-          ? WA.visa
-          : service.slug === "tour-packages"
-            ? WA.tour
-            : WA.hotel;
+  const accentText = tone === "sky" ? "text-sky-700" : tone === "emerald" ? "text-emerald-700" : "text-saffron-700";
+  const accentBg = tone === "sky"
+    ? "from-sky-50 to-white ring-sky-200"
+    : tone === "emerald"
+      ? "from-emerald-50 to-white ring-emerald-200"
+      : "from-saffron-50 to-white ring-saffron-200";
+  const waLink = service.slug === "hajj-umrah" ? WA.hajj
+    : service.slug === "air-ticketing" ? WA.ticket
+    : service.slug === "visa-processing" ? WA.visa
+    : service.slug === "tour-packages" ? WA.tour : WA.hotel;
+
+  const tp = (e: any) => serverTr(e, lang);
+  const lp = (h: string) => localePath(h, lang);
 
   return (
     <>
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Home", href: "/" },
-            { name: "Services", href: "/services" },
+            { name: tp(t.nav.home), href: "/" },
+            { name: tp(t.nav.services), href: "/services" },
             { name: service.title, href: `/services/${service.slug}` }
           ]),
           faqSchema(service.faq)
@@ -72,13 +67,9 @@ export default function ServicePage({ params }: Props) {
       />
       <PageHero kicker={service.hero.kicker} title={service.hero.heading} subtitle={service.hero.sub} tone={tone}>
         <nav className="flex items-center gap-1.5 text-xs text-ink-muted">
-          <Link href="/" className="hover:text-ink">
-            Home
-          </Link>
+          <Link href={lp("/")} className="hover:text-ink">{tp(t.nav.home)}</Link>
           <ChevronRight className="size-3" />
-          <Link href="/services" className="hover:text-ink">
-            Services
-          </Link>
+          <Link href={lp("/services")} className="hover:text-ink">{tp(t.nav.services)}</Link>
           <ChevronRight className="size-3" />
           <span className="text-ink-soft">{service.title}</span>
         </nav>
@@ -93,15 +84,10 @@ export default function ServicePage({ params }: Props) {
               </Reveal>
 
               <Reveal>
-                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">
-                  What is included
-                </h2>
+                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">{tp(t.page.services.whatInc)}</h2>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {service.inclusions.map((inc) => (
-                    <li
-                      key={inc}
-                      className="flex items-start gap-2.5 rounded-2xl border border-border bg-white p-4 text-sm leading-relaxed text-ink-soft"
-                    >
+                    <li key={inc} className="flex items-start gap-2.5 rounded-2xl border border-border bg-white p-4 text-sm leading-relaxed text-ink-soft">
                       <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700">
                         <Check className="size-3.5" />
                       </span>
@@ -112,25 +98,11 @@ export default function ServicePage({ params }: Props) {
               </Reveal>
 
               <Reveal>
-                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">
-                  How we work — step by step
-                </h2>
+                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">{tp(t.page.services.howWeWork)}</h2>
                 <ol className="mt-6 space-y-5">
                   {service.process.map((step, i) => (
-                    <li
-                      key={step.title}
-                      className="relative rounded-2xl border border-border bg-white p-6 pl-16"
-                    >
-                      <span
-                        className={cn(
-                          "absolute left-6 top-6 grid size-8 place-items-center rounded-full text-sm font-bold text-white",
-                          tone === "emerald"
-                            ? "bg-emerald-600"
-                            : tone === "saffron"
-                              ? "bg-saffron-500"
-                              : "bg-sky-600"
-                        )}
-                      >
+                    <li key={step.title} className="relative rounded-2xl border border-border bg-white p-6 pl-16">
+                      <span className={cn("absolute left-6 top-6 grid size-8 place-items-center rounded-full text-sm font-bold text-white", tone === "emerald" ? "bg-emerald-600" : tone === "saffron" ? "bg-saffron-500" : "bg-sky-600")}>
                         {i + 1}
                       </span>
                       <h3 className="font-display text-lg font-bold text-ink">{step.title}</h3>
@@ -141,9 +113,7 @@ export default function ServicePage({ params }: Props) {
               </Reveal>
 
               <Reveal>
-                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">
-                  Frequently asked
-                </h2>
+                <h2 className="mt-12 font-display text-2xl font-bold text-ink md:text-3xl">{tp(t.page.services.faqHead)}</h2>
                 <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-white">
                   {service.faq.map((f) => (
                     <details key={f.q} className="group p-6">
@@ -163,40 +133,22 @@ export default function ServicePage({ params }: Props) {
             <aside className="lg:col-span-4">
               <div className="sticky top-28 space-y-5">
                 <Reveal>
-                  <div
-                    className={cn(
-                      "rounded-3xl bg-gradient-to-br p-6 ring-1 ring-inset",
-                      accentBg
-                    )}
-                  >
-                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-ink-muted">
-                      Need a quick answer?
-                    </div>
+                  <div className={cn("rounded-3xl bg-gradient-to-br p-6 ring-1 ring-inset", accentBg)}>
+                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-ink-muted">{tp(t.page.services.quickAns)}</div>
                     <div className={cn("mt-2 font-display text-xl font-bold", accentText)}>
-                      Talk to our {service.title.toLowerCase()} desk
+                      {tp(t.page.services.talkTo)} {service.title} {tp(t.page.services.desk2)}
                     </div>
                     <div className="mt-4 space-y-3">
-                      <a
-                        href={waLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
-                      >
+                      <a href={waLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700">
                         <WhatsAppIcon size={16} />
-                        WhatsApp this desk
+                        {tp(t.page.services.whatsapp)}
                       </a>
-                      <a
-                        href={`tel:${SITE.phone}`}
-                        className="flex items-center justify-center gap-2 rounded-xl border border-ink/10 bg-white px-5 py-3 text-sm font-semibold text-ink hover:border-sky-500 hover:text-sky-700"
-                      >
+                      <a href={`tel:${SITE.phone}`} className="flex items-center justify-center gap-2 rounded-xl border border-ink/10 bg-white px-5 py-3 text-sm font-semibold text-ink hover:border-sky-500 hover:text-sky-700">
                         <Phone className="size-4" />
-                        Call {SITE.phone}
+                        {tp(t.page.services.callUs)} {SITE.phone}
                       </a>
-                      <Link
-                        href="/contact"
-                        className="flex items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-ink-soft"
-                      >
-                        Visit our office
+                      <Link href={lp("/contact")} className="flex items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-ink-soft">
+                        {tp(t.page.services.visitOff)}
                         <ArrowRight className="size-4" />
                       </Link>
                     </div>
@@ -205,26 +157,22 @@ export default function ServicePage({ params }: Props) {
 
                 <Reveal>
                   <div className="rounded-3xl border border-border bg-white p-6">
-                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-ink-muted">
-                      Other services
-                    </div>
+                    <div className="text-xs font-bold uppercase tracking-[0.22em] text-ink-muted">{tp(t.page.services.other)}</div>
                     <ul className="mt-4 space-y-2">
-                      {services
-                        .filter((s) => s.slug !== service.slug)
-                        .map((s) => (
+                      {allServices.filter((s) => s.slug !== service.slug).map((s) => {
+                        const localized = getServerService(s.slug, lang) ?? s;
+                        return (
                           <li key={s.slug}>
-                            <Link
-                              href={`/services/${s.slug}`}
-                              className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-soft hover:bg-paper-2 hover:text-sky-700"
-                            >
+                            <Link href={lp(`/services/${s.slug}`)} className="group flex items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-soft hover:bg-paper-2 hover:text-sky-700">
                               <span className="flex items-center gap-2">
                                 <span className="text-lg">{s.icon}</span>
-                                {s.title}
+                                {localized.title}
                               </span>
                               <ChevronRight className="size-4 text-ink-subtle group-hover:text-sky-700" />
                             </Link>
                           </li>
-                        ))}
+                        );
+                      })}
                     </ul>
                   </div>
                 </Reveal>

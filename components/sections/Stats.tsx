@@ -3,15 +3,17 @@
 import { CountUp } from "@/components/effects/CountUp";
 import { Container } from "@/components/shared/Container";
 import { ShieldCheck, Plane, Globe, Users } from "lucide-react";
-
-const items = [
-  { value: 11000, suffix: "+", label: "Pilgrims to the Haramain", Icon: ShieldCheck },
-  { value: 60000, suffix: "+", label: "Travellers booked", Icon: Users },
-  { value: 90, suffix: "+", label: "Airlines on offer", Icon: Plane },
-  { value: 45, suffix: "+", label: "Countries served", Icon: Globe }
-];
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function Stats() {
+  const { tr } = useLang();
+  const items = [
+    { value: 11000, suffix: "+", label: tr(t.sections.stats.pilgrims), Icon: ShieldCheck },
+    { value: 60000, suffix: "+", label: tr(t.sections.stats.travel),   Icon: Users },
+    { value: 90,    suffix: "+", label: tr(t.sections.stats.airlines), Icon: Plane },
+    { value: 45,    suffix: "+", label: tr(t.sections.stats.countries),Icon: Globe }
+  ];
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-sky-700 via-sky-800 to-emerald-800 py-16 text-white md:py-20">
       <div

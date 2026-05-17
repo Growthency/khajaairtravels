@@ -4,53 +4,31 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Banknote, Clock, Users, BadgeCheck, Headphones } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-
-const reasons = [
-  {
-    icon: ShieldCheck,
-    title: "Government Approved Hajj agency",
-    body: "Licence No-0252 from the Ministry of Religious Affairs. The licence is on display at our reception — feel free to verify."
-  },
-  {
-    icon: BadgeCheck,
-    title: "IATA verified consolidator",
-    body: "Direct contracts with Biman, Saudia, Emirates, Qatar, Etihad and 80+ more — so the fare you see is the fare you pay."
-  },
-  {
-    icon: Banknote,
-    title: "Transparent, itemised pricing",
-    body: "Every invoice shows airline tax, visa fee, our service charge and BSTI/VAT separately. No hidden numbers, ever."
-  },
-  {
-    icon: Clock,
-    title: "Same-day issuance",
-    body: "Confirmed payment in the morning means an e-ticket in your inbox by afternoon. We do not waste your trip days on paperwork."
-  },
-  {
-    icon: Users,
-    title: "Bangla-speaking khedmat",
-    body: "From the Mu'allim on Hajj to our visa officer in Uttara — every conversation happens in your comfortable language."
-  },
-  {
-    icon: Headphones,
-    title: "24/7 emergency line",
-    body: "A real human on the other end of the phone — even at 3 AM when your flight is delayed and you do not know what to do next."
-  }
-];
+import { useLang } from "@/components/providers/LanguageProvider";
+import { t } from "@/lib/i18n/translations";
 
 export function WhyUs() {
+  const { tr } = useLang();
+  const reasons = [
+    { icon: ShieldCheck, title: tr(t.sections.why.r1.t), body: tr(t.sections.why.r1.b) },
+    { icon: BadgeCheck,  title: tr(t.sections.why.r2.t), body: tr(t.sections.why.r2.b) },
+    { icon: Banknote,    title: tr(t.sections.why.r3.t), body: tr(t.sections.why.r3.b) },
+    { icon: Clock,       title: tr(t.sections.why.r4.t), body: tr(t.sections.why.r4.b) },
+    { icon: Users,       title: tr(t.sections.why.r5.t), body: tr(t.sections.why.r5.b) },
+    { icon: Headphones,  title: tr(t.sections.why.r6.t), body: tr(t.sections.why.r6.b) }
+  ];
   return (
     <section className="section-pad">
       <Container>
         <SectionHeader
-          kicker="Why families choose us"
+          kicker={tr(t.sections.why.kicker)}
           title={
             <>
-              Trusted by Bangladesh for two decades.{" "}
-              <span className="gradient-text">Here is why.</span>
+              {tr(t.sections.why.titleA)}{" "}
+              <span className="gradient-text">{tr(t.sections.why.titleB)}</span>
             </>
           }
-          subtitle="It is not the slogans, it is the small details that define a travel partner. These six are non-negotiable for us — every day, every booking."
+          subtitle={tr(t.sections.why.sub)}
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (

@@ -3,9 +3,10 @@ import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/shared/Container";
 import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { faqs, faqCategories } from "@/lib/data/faqs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
+import { getServerLang, getServerFaqs, serverTr } from "@/lib/i18n/server";
+import { t } from "@/lib/i18n/translations";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions — Khaja Air Travels",
@@ -16,31 +17,36 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
+  const lang = getServerLang();
+  const faqs = getServerFaqs(lang);
+  const tp = (e: any) => serverTr(e, lang);
+  const categories = Array.from(new Set(faqs.map((f) => f.category)));
+
   return (
     <>
       <JsonLd
         data={[
           faqSchema(faqs.map((f) => ({ q: f.q, a: f.a }))),
           breadcrumbSchema([
-            { name: "Home", href: "/" },
-            { name: "FAQ", href: "/faq" }
+            { name: tp(t.nav.home), href: "/" },
+            { name: tp(t.page.faq.kicker), href: "/faq" }
           ])
         ]}
       />
       <PageHero
-        kicker="Frequently asked"
+        kicker={tp(t.page.faq.kicker)}
         title={
           <>
-            Honest answers to <span className="gradient-text">honest questions.</span>
+            {tp(t.page.faq.titleA)} <span className="gradient-text">{tp(t.page.faq.titleB)}</span>
           </>
         }
-        subtitle="Don't see your question? Pick up the phone, send a WhatsApp or walk into our Uttara office. We answer everything that does not require a stamp from a sovereign government."
+        subtitle={tp(t.page.faq.sub)}
         tone="saffron"
       />
 
       <section className="section-pad">
         <Container size="tight">
-          {faqCategories.map((cat) => {
+          {categories.map((cat) => {
             const items = faqs.filter((f) => f.category === cat);
             return (
               <Reveal key={cat}>
