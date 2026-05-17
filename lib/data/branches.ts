@@ -1,0 +1,194 @@
+export type Branch = {
+  slug: string;
+  title: string;
+  role: string;
+  tagline: string;
+  established: string;
+  intro: string;
+  sectors: string[];
+  highlights: string[];
+  body: { heading: string; paragraphs: string[] }[];
+  contact?: { phone?: string; email?: string; address?: string };
+  cta: { label: string; href: string };
+  accent: "sky" | "emerald" | "saffron";
+  meta: { title: string; description: string };
+};
+
+export const branches: Branch[] = [
+  {
+    slug: "khaja-air-travels",
+    title: "Khaja Air Travels",
+    role: "Proprietor — Amdadul Haque Mir",
+    tagline: "Government Approved Hajj Agency, Licence No-0252",
+    established: "2003",
+    intro:
+      "Khaja Air Travels is the flagship of the group. Founded in 2003 by Mr. Amdadul Haque Mir, the agency carries Hajj Licence No-0252 issued by the Ministry of Religious Affairs and has guided more than 11,000 pilgrims to the Haramain since inception.",
+    sectors: ["Hajj & Umrah", "Air Ticketing", "Visa Processing", "Tour Packages", "Hotel Booking"],
+    highlights: [
+      "Recognised Hajj agency by Ministry of Religious Affairs",
+      "IATA verified ticketing consolidator",
+      "Member, Hajj Agencies Association of Bangladesh (HAAB)",
+      "Member, Association of Travel Agents of Bangladesh (ATAB)"
+    ],
+    body: [
+      {
+        heading: "Our story",
+        paragraphs: [
+          "Khaja Air Travels began as a small office in Cumilla in 2003, helping local families perform Umrah and arrange affordable air tickets. Within five years the demand from neighbouring districts pushed us to open a corporate office in Uttara, Dhaka, and to apply for a formal Hajj Licence.",
+          "We received Hajj Licence No-0252 in 2009 and have led pilgrim groups for every Hajj season since. Each season, our office becomes a second home to families preparing for their once-in-a-lifetime journey — and that warmth is what our pilgrims remember most when they return."
+        ]
+      },
+      {
+        heading: "What we do",
+        paragraphs: [
+          "Today, Khaja Air Travels operates a five-desk full-service travel office: Hajj & Umrah, Air Ticketing, Visa Processing, Hotel Booking and Tour Packages. Our pilgrim group sizes range from 8 to 220 each season, and we issue more than 18,000 air tickets a year across domestic and international airlines.",
+          "Beyond travel, the group has grown into a small family of companies — Shahi Air International, Chandina Village Housing Ltd. and Abibil Trading Food Products Ltd. — that share the same principle: serve the customer the way you would serve your own family."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801743656066",
+      email: "info@khajaairtravels.com",
+      address: "House 12, Road 4, Sector 7, Uttara, Dhaka 1230, Bangladesh"
+    },
+    cta: { label: "Plan with our travel desk", href: "/contact" },
+    accent: "sky",
+    meta: {
+      title: "Khaja Air Travels — Govt. Approved Hajj Agency (Licence No-0252)",
+      description: "Flagship office of the Khaja group — Hajj & Umrah, air ticketing, visa, tour and hotel services since 2003. Uttara, Dhaka."
+    }
+  },
+  {
+    slug: "shahi-air-international",
+    title: "Shahi Air International",
+    role: "Managing Partner — Amdadul Haque Mir",
+    tagline: "Manpower export and international employment services",
+    established: "2011",
+    intro:
+      "Shahi Air International is the group's recruiting agency, working under the Bureau of Manpower, Employment and Training (BMET). We send skilled and unskilled workers to Saudi Arabia, the United Arab Emirates, Qatar, Oman, Malaysia and Singapore — with a focus on ethical recruitment and transparent fees.",
+    sectors: ["Manpower Export", "Skill Testing", "Pre-departure Briefing", "Worker Welfare"],
+    highlights: [
+      "BMET registered recruiting agency",
+      "Tie-ups with 60+ employers across the GCC and South-East Asia",
+      "In-house skill testing for cleaners, drivers, AC technicians, masons and carpenters",
+      "Pre-departure orientation in Bangla, including financial literacy"
+    ],
+    body: [
+      {
+        heading: "Why manpower export, why us",
+        paragraphs: [
+          "Remittance is the lifeline of millions of Bangladeshi families. Shahi Air International was founded in 2011 because Mr. Mir saw too many workers exploited at the recruitment stage — promised one salary, paid another. We set out to do this differently.",
+          "Every Shahi Air worker signs a contract in Bangla and English, knows their take-home salary in writing before they board the flight, and carries a printed grievance number that connects to a real person in our Dhaka office."
+        ]
+      },
+      {
+        heading: "Welfare beyond placement",
+        paragraphs: [
+          "Our khedmat to the workers does not end at the boarding gate. We run a quarterly check-in with each placed worker for the first year, support family-side documentation when they want to remit, and host a welcome session when they return home on leave.",
+          "Today our alumni network is more than 7,400 workers strong across the GCC and Malaysia — and many of them have placed their younger brothers, cousins and neighbours through us in turn."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801711122334",
+      email: "shahi@khajaairtravels.com",
+      address: "House 12, Road 4, Sector 7, Uttara, Dhaka 1230, Bangladesh"
+    },
+    cta: { label: "Talk to our recruitment desk", href: "/contact" },
+    accent: "saffron",
+    meta: {
+      title: "Shahi Air International — BMET Registered Recruiting Agency",
+      description: "Ethical manpower export to Saudi Arabia, UAE, Qatar, Oman, Malaysia and Singapore. Transparent contracts, in-house skill testing, lifelong worker welfare."
+    }
+  },
+  {
+    slug: "chandina-village-housing",
+    title: "Chandina Village Housing Ltd.",
+    role: "Director — Amdadul Haque Mir",
+    tagline: "Planned residential plots and affordable village housing in Cumilla",
+    established: "2016",
+    intro:
+      "Chandina Village Housing Ltd. develops planned residential plots and modern village houses in and around Chandina Upazila of Cumilla district. Our projects bring city amenities — water, gas, paved roads, drainage, a community mosque — to homebuyers who want to invest in their own soil.",
+    sectors: ["Land Development", "Village Housing", "Plot Sales", "Community Infrastructure"],
+    highlights: [
+      "Two on-going projects spanning 22 bighas in Chandina",
+      "Approved layout from the Upazila land authority",
+      "Easy instalments of 24, 36 and 60 months",
+      "Project mosque, community hall and pucca road inside every project"
+    ],
+    body: [
+      {
+        heading: "Home back home",
+        paragraphs: [
+          "Many Bangladeshis living in Dhaka or working abroad dream of a home in their own gram (village). Chandina Village Housing was created to make that dream achievable. We acquire farmland legally, gain layout approval, lay water-gas-electric infrastructure, and sell ready-to-build plots and turnkey village houses at a fair price.",
+          "The first project, Khaja Garden City, sold out in 18 months. Our current projects — Khaja Sonali Bhumi and Khaja Sebuj Palli — are designed with the same principle: clear paperwork, infrastructure that lasts decades, and a community feel."
+        ]
+      },
+      {
+        heading: "What you get",
+        paragraphs: [
+          "Every plot comes with paved access road, drainage, treated water connection, and reservation for gas and electricity. Buyers receive their saaf-kabala registration within 90 days of full payment.",
+          "We also offer fully built three-bedroom village houses on a turnkey basis for buyers who want to move in (or rent out) immediately. Construction is supervised by our own civil team."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801743656077",
+      email: "chandina@khajaairtravels.com",
+      address: "Chandina Bazar Road, Chandina, Cumilla"
+    },
+    cta: { label: "Request the project booklet", href: "/contact" },
+    accent: "emerald",
+    meta: {
+      title: "Chandina Village Housing Ltd. — Planned Plots in Cumilla",
+      description: "Planned residential plots and turnkey village houses in Chandina, Cumilla. Infrastructure, mosque and road inside every project. Easy 24–60 month instalments."
+    }
+  },
+  {
+    slug: "abibil-trading",
+    title: "Abibil Trading Food Products Ltd.",
+    role: "Shareholder — Amdadul Haque Mir",
+    tagline: "Fresh dry food and pantry essentials from the heartland of Cumilla",
+    established: "2019",
+    intro:
+      "Abibil Trading Food Products Ltd. sources, packs and distributes dry food and pantry essentials — premium quality rice, lentils, mustard oil, ghee, dates, honey, spices and traditional Cumilla khadi (sweet) under hygienic conditions. We supply to retail stores, restaurants and Hajj group caterers across Dhaka, Chattogram and Cumilla.",
+    sectors: ["Food Trading", "Wholesale Distribution", "Branded Packaging", "Hajj Group Catering"],
+    highlights: [
+      "BSTI compliant packaging and labelling",
+      "Khejur (dates), zam-zam water and Ihram supply for Hajj groups",
+      "Direct sourcing of rice and lentils from north Bengal farmers",
+      "Halal certification on all packaged products"
+    ],
+    body: [
+      {
+        heading: "From farm to family",
+        paragraphs: [
+          "Abibil Trading was set up in 2019 to bring honest, traceable food to Bangladeshi pantries. Adulteration of cooking oil, fake dates and dyed turmeric had become common in the market — and our founders wanted to offer a reliable alternative at a fair price.",
+          "We work directly with farmers in Dinajpur, Naogaon and Bogura for rice and lentils, and import premium Ajwa, Sukkari and Mabroom dates and zam-zam water from authorised Saudi suppliers."
+        ]
+      },
+      {
+        heading: "Trusted by Hajj groups",
+        paragraphs: [
+          "A natural extension of the group, Abibil Trading is the preferred supplier for Khaja Air Travels Hajj groups every season — providing zam-zam water, Ajwa dates, prayer mats and gift packs that pilgrims bring home for relatives.",
+          "We also distribute to over 90 retail outlets and 12 restaurants in the Dhaka and Cumilla region under the Abibil brand."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801743656088",
+      email: "abibil@khajaairtravels.com",
+      address: "Cumilla Sadar Dakshin, Cumilla 3500"
+    },
+    cta: { label: "Request a wholesale price list", href: "/contact" },
+    accent: "saffron",
+    meta: {
+      title: "Abibil Trading Food Products Ltd. — Honest Pantry Essentials",
+      description: "Dry food and pantry essentials — premium rice, lentils, mustard oil, ghee, dates, honey, spices and Cumilla khadi. BSTI compliant, Halal certified."
+    }
+  }
+];
+
+export function getBranch(slug: string) {
+  return branches.find((b) => b.slug === slug);
+}
