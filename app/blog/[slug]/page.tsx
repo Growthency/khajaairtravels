@@ -23,13 +23,22 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: p.title,
     description: p.excerpt,
+    alternates: { canonical: `/blog/${p.slug}` },
     openGraph: {
+      url: `/blog/${p.slug}`,
       title: p.title,
       description: p.excerpt,
-      images: [p.cover],
+      images: [{ url: p.cover, alt: p.coverAlt }],
       type: "article",
       publishedTime: p.publishedAt,
-      authors: [p.author.name]
+      authors: [p.author.name],
+      tags: p.tags
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: p.title,
+      description: p.excerpt,
+      images: [p.cover]
     }
   };
 }

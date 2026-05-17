@@ -4,16 +4,29 @@ import { Container } from "@/components/shared/Container";
 import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { faqs, faqCategories } from "@/lib/data/faqs";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions — Khaja Air Travels",
   description:
-    "Common questions about our Hajj & Umrah packages, air tickets, visa processing, payments and refund policies — answered honestly by the team."
+    "Common questions about our Hajj & Umrah packages, air tickets, visa processing, payments and refund policies — answered honestly by the team.",
+  alternates: { canonical: "/faq" },
+  openGraph: { url: "/faq" }
 };
 
 export default function FAQPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          faqSchema(faqs.map((f) => ({ q: f.q, a: f.a }))),
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "FAQ", href: "/faq" }
+          ])
+        ]}
+      />
       <PageHero
         kicker="Frequently asked"
         title={

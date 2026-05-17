@@ -62,6 +62,42 @@ export const breadcrumbSchema = (
   }))
 });
 
+export const faqSchema = (items: { q: string; a: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((it) => ({
+    "@type": "Question",
+    name: it.q,
+    acceptedAnswer: { "@type": "Answer", text: it.a }
+  }))
+});
+
+export const localBusinessSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "@id": `${SITE.url}#travel-agency`,
+  name: SITE.name,
+  image: `${SITE.url}/favicon.svg`,
+  url: SITE.url,
+  telephone: SITE.phone,
+  email: SITE.email,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "House 12, Road 4, Sector 7",
+    addressLocality: "Uttara, Dhaka",
+    postalCode: "1230",
+    addressCountry: "BD"
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 23.8742, longitude: 90.3909 },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+    opens: "09:30",
+    closes: "20:00"
+  }
+});
+
 export const articleSchema = (post: {
   slug: string;
   title: string;

@@ -9,11 +9,15 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { services } from "@/lib/data/services";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "Our Services — Hajj, Umrah, Air Tickets, Visa, Tours, Hotels",
   description:
-    "Five desks under one roof — Hajj & Umrah, Air Ticketing, Visa Processing, Tour Packages and Hotel Booking. Government Approved Hajj Agency Licence No-0252."
+    "Five desks under one roof — Hajj & Umrah, Air Ticketing, Visa Processing, Tour Packages and Hotel Booking. Government Approved Hajj Agency Licence No-0252.",
+  alternates: { canonical: "/services" },
+  openGraph: { url: "/services" }
 };
 
 const accents = {
@@ -25,6 +29,12 @@ const accents = {
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Services", href: "/services" }
+        ])}
+      />
       <PageHero
         kicker="Our services"
         title={

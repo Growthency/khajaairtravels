@@ -10,11 +10,15 @@ import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { branches } from "@/lib/data/branches";
 import { SITE } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "About Khaja Air Travels — 20 years of khedmat",
   description:
-    "Founded by Amdadul Haque Mir in 2003 in Cumilla. Today, a Government Approved Hajj agency (Licence No-0252) with a four-company group spanning travel, manpower, housing and food."
+    "Founded by Amdadul Haque Mir in 2003 in Cumilla. Today, a Government Approved Hajj agency (Licence No-0252) with a four-company group spanning travel, manpower, housing and food.",
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about", title: "About Khaja Air Travels — 20 years of khedmat" }
 };
 
 const values = [
@@ -53,6 +57,12 @@ const milestones = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "About", href: "/about" }
+        ])}
+      />
       <PageHero
         kicker="About us"
         title={

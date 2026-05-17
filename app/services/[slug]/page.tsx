@@ -10,6 +10,8 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { services, getService } from "@/lib/data/services";
 import { SITE, WA, cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 
 type Props = { params: { slug: string } };
 
@@ -20,7 +22,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const s = getService(params.slug);
   if (!s) return { title: "Service not found" };
-  return { title: s.meta.title, description: s.meta.description };
+  return {
+    title: s.meta.title,
+    description: s.meta.description,
+    alternates: { canonical: `/services/${s.slug}` },
+    openGraph: { url: `/services/${s.slug}`, title: s.meta.title, description: s.meta.description }
+  };
 }
 
 export default function ServicePage({ params }: Props) {
@@ -53,6 +60,16 @@ export default function ServicePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Services", href: "/services" },
+            { name: service.title, href: `/services/${service.slug}` }
+          ]),
+          faqSchema(service.faq)
+        ]}
+      />
       <PageHero kicker={service.hero.kicker} title={service.hero.heading} subtitle={service.hero.sub} tone={tone}>
         <nav className="flex items-center gap-1.5 text-xs text-ink-muted">
           <Link href="/" className="hover:text-ink">

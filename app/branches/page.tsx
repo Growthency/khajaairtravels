@@ -7,11 +7,15 @@ import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { branches } from "@/lib/data/branches";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "Our Branches — Khaja Air Travels, Shahi Air, Chandina Housing, Abibil Trading",
   description:
-    "Four companies under one founder — Khaja Air Travels (travel), Shahi Air International (manpower), Chandina Village Housing Ltd. (housing) and Abibil Trading Food Products Ltd. (food)."
+    "Four companies under one founder — Khaja Air Travels (travel), Shahi Air International (manpower), Chandina Village Housing Ltd. (housing) and Abibil Trading Food Products Ltd. (food).",
+  alternates: { canonical: "/branches" },
+  openGraph: { url: "/branches" }
 };
 
 const tones = {
@@ -23,6 +27,12 @@ const tones = {
 export default function BranchesIndex() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Branches", href: "/branches" }
+        ])}
+      />
       <PageHero
         kicker="Our Branches"
         title={

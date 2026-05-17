@@ -7,16 +7,29 @@ import { Reveal } from "@/components/effects/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { SITE, WA } from "@/lib/utils";
 import { branches } from "@/lib/data/branches";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { localBusinessSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
   title: "Contact Us — Khaja Air Travels Uttara office",
   description:
-    "Visit our Uttara office, call us or WhatsApp our desk. Saturday — Thursday, 9:30 AM — 8:00 PM. We reply to every enquiry within one working day."
+    "Visit our Uttara office, call us or WhatsApp our desk. Saturday — Thursday, 9:30 AM — 8:00 PM. We reply to every enquiry within one working day.",
+  alternates: { canonical: "/contact" },
+  openGraph: { url: "/contact" }
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          localBusinessSchema(),
+          breadcrumbSchema([
+            { name: "Home", href: "/" },
+            { name: "Contact", href: "/contact" }
+          ])
+        ]}
+      />
       <PageHero
         kicker="Get in touch"
         title={

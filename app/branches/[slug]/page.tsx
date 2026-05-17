@@ -9,6 +9,8 @@ import { Reveal } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { branches, getBranch } from "@/lib/data/branches";
 import { SITE, WA, cn } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/seo/schemas";
 
 type Props = { params: { slug: string } };
 
@@ -19,7 +21,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const b = getBranch(params.slug);
   if (!b) return { title: "Branch not found" };
-  return { title: b.meta.title, description: b.meta.description };
+  return {
+    title: b.meta.title,
+    description: b.meta.description,
+    alternates: { canonical: `/branches/${b.slug}` },
+    openGraph: { url: `/branches/${b.slug}`, title: b.meta.title, description: b.meta.description }
+  };
 }
 
 const tones = {
@@ -43,6 +50,13 @@ export default function BranchPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", href: "/" },
+          { name: "Branches", href: "/branches" },
+          { name: branch.title, href: `/branches/${branch.slug}` }
+        ])}
+      />
       <PageHero
         kicker={`Est. ${branch.established} · ${branch.role}`}
         title={branch.title}

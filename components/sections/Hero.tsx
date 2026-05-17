@@ -72,7 +72,7 @@ export function Hero() {
       <GradientBlob color="emerald" size="lg" className="top-1/4 right-0" opacity={0.16} />
       <GradientBlob color="saffron" size="md" className="bottom-0 left-1/3" opacity={0.16} />
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 pb-24 pt-32 md:px-8 lg:grid-cols-12 lg:gap-8 lg:pb-32 lg:pt-40">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 pb-24 pt-24 md:px-8 lg:grid-cols-12 lg:gap-8 lg:pb-28 lg:pt-28">
         <motion.div style={{ y, opacity }} className="relative z-10 lg:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -88,15 +88,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="mt-5 font-display text-[42px] leading-[1.02] font-bold tracking-tight text-ink text-balance md:text-[64px] lg:text-[72px]"
+            className="mt-5 font-display text-[40px] leading-[1.05] font-bold tracking-tight text-ink md:text-[60px] lg:text-[68px]"
           >
-            Your journey to the <span className="gradient-text-shimmer">Haramain</span>
-            <br />
-            <span className="text-ink">begins with </span>
-            <TypeWriter
-              words={["Khaja Air", "khedmat", "trust", "tomar bondhu"]}
-              className="gradient-text"
-            />
+            <span className="block">Your journey to the</span>
+            <span className="block gradient-text-shimmer">Haramain begins</span>
+            <span className="block min-h-[1.1em]">
+              with{" "}
+              <TypeWriter
+                words={["khedmat.", "trust.", "Khaja Air.", "barakah."]}
+                className="gradient-text"
+              />
+            </span>
           </motion.h1>
 
           <motion.p

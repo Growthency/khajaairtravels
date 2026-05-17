@@ -12,7 +12,9 @@ import { formatDate, readingTime } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Travel Journal — Hajj, Umrah, Visa, Tour insights",
   description:
-    "Honest, practical writing from the Khaja Air Travels Hajj, Visa and Tours teams. Hajj quota updates, visa checklists, itineraries and pre-departure guides."
+    "Honest, practical writing from the Khaja Air Travels Hajj, Visa and Tours teams. Hajj quota updates, visa checklists, itineraries and pre-departure guides.",
+  alternates: { canonical: "/blog" },
+  openGraph: { url: "/blog", type: "website" }
 };
 
 const categories = ["All", "Hajj & Umrah", "Visa", "Tours", "Travel Tips"] as const;

@@ -6,31 +6,38 @@ import { SITE } from "@/lib/utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
-  const staticRoutes = ["", "/about", "/services", "/branches", "/blog", "/contact", "/gallery", "/faq"].map(
-    (p) => ({
-      url: `${SITE.url}${p}`,
-      lastModified: today,
-      changeFrequency: "monthly" as const,
-      priority: p === "" ? 1 : 0.7
-    })
-  );
-  const serviceRoutes = services.map((s) => ({
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${SITE.url}/`,        lastModified: today, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${SITE.url}/about`,   lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/services`,lastModified: today, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE.url}/branches`,lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE.url}/blog`,    lastModified: today, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${SITE.url}/contact`, lastModified: today, changeFrequency: "yearly",  priority: 0.8 },
+    { url: `${SITE.url}/gallery`, lastModified: today, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE.url}/faq`,     lastModified: today, changeFrequency: "monthly", priority: 0.6 }
+  ];
+
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
     url: `${SITE.url}/services/${s.slug}`,
     lastModified: today,
-    changeFrequency: "monthly" as const,
-    priority: 0.8
+    changeFrequency: "monthly",
+    priority: 0.85
   }));
-  const branchRoutes = branches.map((b) => ({
+
+  const branchRoutes: MetadataRoute.Sitemap = branches.map((b) => ({
     url: `${SITE.url}/branches/${b.slug}`,
     lastModified: today,
-    changeFrequency: "monthly" as const,
-    priority: 0.6
+    changeFrequency: "monthly",
+    priority: 0.65
   }));
-  const blogRoutes = posts.map((p) => ({
+
+  const blogRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${SITE.url}/blog/${p.slug}`,
     lastModified: new Date(p.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.7
+    changeFrequency: "monthly",
+    priority: 0.75,
+    images: [p.cover.startsWith("http") ? p.cover : `${SITE.url}${p.cover}`]
   }));
+
   return [...staticRoutes, ...serviceRoutes, ...branchRoutes, ...blogRoutes];
 }
