@@ -112,22 +112,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-white/55">{tr(t.footer.company)}</h3>
-            <ul className="mt-4 space-y-2.5">
-              {[
-                { label: tr(t.footer.aboutUs), href: "/about" },
-                { label: tr(t.footer.blog),    href: "/blog" },
-                { label: tr(t.footer.gallery), href: "/gallery" },
-                { label: tr(t.footer.faq),     href: "/faq" },
-                { label: tr(t.footer.contactLi), href: "/contact" }
-              ].map((l) => (
-                <li key={l.href}>
-                  <Link href={lh(l.href)} className="text-sm text-white/75 hover:text-white">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="lg:col-span-3">
