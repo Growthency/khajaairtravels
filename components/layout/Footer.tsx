@@ -50,6 +50,12 @@ export function Footer() {
             <p className="mt-5 text-sm leading-relaxed text-white/70 max-w-md">
               {tr(t.footer.tagline)}
             </p>
+            <p className="mt-3 text-xs font-semibold text-white/55">
+              {tr(t.sections.group.part)}{" "}
+              <span className="text-sky-300">{tr(t.sections.group.name)}</span>
+              {" · "}
+              {tr(t.sections.group.name) === "Khaja International Group" ? "Excellence · Integrity · Trust" : "শ্রেষ্ঠত্ব · সততা · বিশ্বাস"}
+            </p>
             <div className="mt-6 flex flex-wrap gap-2.5">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-[11px] font-semibold text-emerald-300 ring-1 ring-emerald-400/20">
                 <ShieldCheck className="size-3.5" /> {tr(t.footer.badges.mora)}

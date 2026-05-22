@@ -40,7 +40,7 @@ export const testimonials: Testimonial[] = [
     role: "MBA Student",
     city: "Dhaka",
     quote:
-      "Got my Schengen visa from their Uttara office for a 14-day Turkey + Greece trip. They prepared a clear cover letter and itinerary — interview was easier than I expected. Visa stamped in 9 working days.",
+      "Got my Schengen visa from their Dhaka office for a 14-day Turkey + Greece trip. They prepared a clear cover letter and itinerary — interview was easier than I expected. Visa stamped in 9 working days.",
     service: "Schengen Visa Processing",
     rating: 5
   },

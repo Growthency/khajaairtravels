@@ -34,6 +34,8 @@ import { posts } from "@/lib/data/posts";
 import { postsBn } from "@/lib/data/posts.bn";
 import { faqs } from "@/lib/data/faqs";
 import { faqsBn } from "@/lib/data/faqs.bn";
+import { leadership } from "@/lib/data/leadership";
+import { leadershipBn } from "@/lib/data/leadership.bn";
 
 export function getServerServices(lang?: Lang) {
   const l = lang ?? getServerLang();
@@ -65,4 +67,9 @@ export function getServerRecentPosts(limit = 3, exclude?: string, lang?: Lang) {
 export function getServerFaqs(lang?: Lang) {
   const l = lang ?? getServerLang();
   return l === "bn" ? faqsBn : faqs;
+}
+
+export function getServerLeadership(lang?: Lang) {
+  const l = lang ?? getServerLang();
+  return l === "bn" ? leadershipBn : leadership;
 }

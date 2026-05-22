@@ -8,6 +8,7 @@ import { Reveal, StaggerGroup } from "@/components/effects/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Leadership } from "@/components/sections/Leadership";
 import { SITE } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
@@ -42,7 +43,7 @@ export default function AboutPage() {
 
   const milestones = lang === "bn" ? [
     { year: "২০০৩", title: "কুমিল্লায় প্রতিষ্ঠা",          body: "জনাব আমদাদুল হক মির একটি একক-ডেস্কের ট্রাভেল অফিস খোলেন, মূলত উমরাহ ও টিকিটিংয়ের জন্য।" },
-    { year: "২০০৮", title: "উত্তরা অফিস উদ্বোধন",          body: "ঢাকার চাহিদা আমাদের উত্তরা সেক্টর ৭-এ একটি পূর্ণাঙ্গ কর্পোরেট অফিস স্থাপনে বাধ্য করে।" },
+    { year: "২০০৮", title: "ঢাকা অফিস উদ্বোধন",          body: "ঢাকার চাহিদা আমাদের ঢাকা-এ একটি পূর্ণাঙ্গ কর্পোরেট অফিস স্থাপনে বাধ্য করে।" },
     { year: "২০০৯", title: "হজ লাইসেন্স নং-০২৫২ পাই",    body: "ধর্ম মন্ত্রণালয় কর্তৃক প্রতি মৌসুমে হাজী গ্রুপ পরিচালনার অনুমোদন।" },
     { year: "২০১১", title: "শাহী এয়ার ইন্টারন্যাশনাল শুরু", body: "নৈতিক জনশক্তি রপ্তানির জন্য আলাদা ডেস্ক — দ্রুত সিস্টার কনসার্ন হয়ে যায়।" },
     { year: "২০১৬", title: "চান্দিনা ভিলেজ হাউজিং লিমিটেড", body: "প্রতিষ্ঠাতা চান্দিনা, কুমিল্লায় মাইগ্রেন্ট-ওয়ার্কার পরিবারের জন্য একটি প্রকল্প দিয়ে জমি উন্নয়নে প্রবেশ করেন।" },
@@ -50,7 +51,7 @@ export default function AboutPage() {
     { year: "২০২৪", title: "১১,০০০+ হাজী সেবা",          body: "খাজা এয়ার ট্র্যাভেলস দিয়ে যাওয়া হাজীদের ক্রমবর্ধমান সংখ্যা এগারো হাজার অতিক্রম।" }
   ] : [
     { year: "2003", title: "Founded in Cumilla",            body: "Mr. Amdadul Haque Mir opens a single-desk travel office, primarily for Umrah and ticketing." },
-    { year: "2008", title: "Opened the Uttara office",      body: "Demand from Dhaka pushes us to establish a full corporate office in Uttara Sector 7." },
+    { year: "2008", title: "Opened the Dhaka office",      body: "Demand from Dhaka pushes us to establish a full corporate office in Dhaka." },
     { year: "2009", title: "Awarded Hajj Licence No-0252",  body: "Recognised by the Ministry of Religious Affairs to lead pilgrim groups every season." },
     { year: "2011", title: "Shahi Air International begins", body: "A separate desk for ethical manpower export — quickly becomes a sister concern." },
     { year: "2016", title: "Chandina Village Housing Ltd.", body: "Founder enters land development with a project for migrant-worker families in Chandina, Cumilla." },
@@ -116,7 +117,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-border">
                   <Image
                     src="/images/about/team.webp"
-                    alt={lang === "bn" ? "উত্তরা অফিসে খাজা এয়ার ট্র্যাভেলস টিম" : "Khaja Air Travels team at the Uttara office"}
+                    alt={lang === "bn" ? "ঢাকা অফিসে খাজা এয়ার ট্র্যাভেলস টিম" : "Khaja Air Travels team at the Dhaka office"}
                     fill
                     sizes="(min-width:1024px) 400px, 80vw"
                     className="object-cover"
@@ -192,7 +193,9 @@ export default function AboutPage() {
 
       <Stats />
 
-      <section className="section-pad">
+      <Leadership />
+
+      <section className="section-pad bg-paper-2">
         <Container>
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">

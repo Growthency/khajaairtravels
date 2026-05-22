@@ -59,7 +59,7 @@ export const galleryBn: GalleryItem[] = [
   },
   {
     id: "office-team",
-    title: "আমাদের উত্তরা অফিস",
+    title: "আমাদের ঢাকা অফিস",
     caption: "সকালের ব্রিফিংয়ের পর খাজা এয়ার ট্র্যাভেলস টিম।",
     category: "Office",
     src: "/images/gallery/office-team.webp",

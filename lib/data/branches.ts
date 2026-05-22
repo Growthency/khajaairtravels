@@ -34,7 +34,7 @@ export const branches: Branch[] = [
       {
         heading: "Our story",
         paragraphs: [
-          "Khaja Air Travels began as a small office in Cumilla in 2003, helping local families perform Umrah and arrange affordable air tickets. Within five years the demand from neighbouring districts pushed us to open a corporate office in Uttara, Dhaka, and to apply for a formal Hajj Licence.",
+          "Khaja Air Travels began as a small office in Cumilla in 2003, helping local families perform Umrah and arrange affordable air tickets. Within five years the demand from neighbouring districts pushed us to open a corporate office in Dhaka, and to apply for a formal Hajj Licence.",
           "We received Hajj Licence No-0252 in 2009 and have led pilgrim groups for every Hajj season since. Each season, our office becomes a second home to families preparing for their once-in-a-lifetime journey — and that warmth is what our pilgrims remember most when they return."
         ]
       },
@@ -47,15 +47,15 @@ export const branches: Branch[] = [
       }
     ],
     contact: {
-      phone: "+8801743656066",
-      email: "info@khajaairtravels.com",
-      address: "House 12, Road 4, Sector 7, Uttara, Dhaka 1230, Bangladesh"
+      phone: "+8801711338261",
+      email: "khajaair03@gmail.com",
+      address: "61 Nikethon Mulla Complex, Dhaka 1000, Bangladesh"
     },
     cta: { label: "Plan with our travel desk", href: "/contact" },
     accent: "sky",
     meta: {
       title: "Khaja Air Travels — Govt. Approved Hajj Agency (Licence No-0252)",
-      description: "Flagship office of the Khaja group — Hajj & Umrah, air ticketing, visa, tour and hotel services since 2003. Uttara, Dhaka."
+      description: "Flagship office of the Khaja group — Hajj & Umrah, air ticketing, visa, tour and hotel services since 2003. Dhaka."
     }
   },
   {
@@ -90,9 +90,9 @@ export const branches: Branch[] = [
       }
     ],
     contact: {
-      phone: "+8801711122334",
-      email: "shahi@khajaairtravels.com",
-      address: "House 12, Road 4, Sector 7, Uttara, Dhaka 1230, Bangladesh"
+      phone: "+8801779734415",
+      email: "shahi@khajainternational.com",
+      address: "61 Nikethon Mulla Complex, Dhaka 1000, Bangladesh"
     },
     cta: { label: "Talk to our recruitment desk", href: "/contact" },
     accent: "saffron",
@@ -185,6 +185,135 @@ export const branches: Branch[] = [
     meta: {
       title: "Abibil Trading Food Products Ltd. — Honest Pantry Essentials",
       description: "Dry food and pantry essentials — premium rice, lentils, mustard oil, ghee, dates, honey, spices and Cumilla khadi. BSTI compliant, Halal certified."
+    }
+  },
+  {
+    slug: "khaja-international",
+    title: "Khaja International",
+    role: "A Khaja International Group company",
+    tagline: "Civil Aviation Authority approved — Licence No: 0014496",
+    established: "2014",
+    intro:
+      "Khaja International holds the group's Civil Aviation Authority of Bangladesh (CAAB) approval, Licence No-0014496. It is the aviation and ticketing backbone of the group — operating live GDS terminals, holding airline contracts and issuing tens of thousands of tickets a year across domestic and international routes.",
+    sectors: ["Air Ticketing", "Airline GSA", "Corporate Travel", "Group Fares"],
+    highlights: [
+      "CAAB approved — Licence No-0014496",
+      "Direct contracts with 90+ airlines",
+      "Live Amadeus & Galileo GDS terminals",
+      "Dedicated corporate and group-fare desk"
+    ],
+    body: [
+      {
+        heading: "The aviation backbone",
+        paragraphs: [
+          "Every confirmed ticket the group issues runs through Khaja International's aviation licence. Holding the CAAB approval (Licence No-0014496) lets the group contract directly with airlines, access net fares and serve corporate accounts that need volume and reliability.",
+          "From a single Dhaka — Jeddah pilgrim ticket to a 200-seat group movement for the Hajj season, the ticketing desk plans, prices and issues with the precision a regulated aviation business demands."
+        ]
+      },
+      {
+        heading: "Built for scale and trust",
+        paragraphs: [
+          "Corporate clients, travel sub-agents and group organisers rely on Khaja International for transparent net fares, 24/7 rescheduling and honest, itemised invoices.",
+          "The same aviation infrastructure powers Khaja Air Travels' Hajj and Umrah flight planning every season — which is why our pilgrim groups so often travel on direct flights at fair fares."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801711338261",
+      email: "khajaair03@gmail.com",
+      address: "61 Nikethon Mulla Complex, Dhaka 1000, Bangladesh"
+    },
+    cta: { label: "Talk to our ticketing desk", href: "/contact" },
+    accent: "sky",
+    meta: {
+      title: "Khaja International — CAAB Approved Aviation & Ticketing (Licence 0014496)",
+      description: "The aviation and ticketing arm of Khaja International Group. CAAB Licence No-0014496, direct airline contracts, GDS terminals, corporate and group fares."
+    }
+  },
+  {
+    slug: "khaja-holidays",
+    title: "Khaja Holidays & Consultancy",
+    role: "A Khaja International Group company",
+    tagline: "Authorized Tour Operator — curated holidays & travel consultancy",
+    established: "2018",
+    intro:
+      "Khaja Holidays & Consultancy is the group's authorized tour operator, designing Halal-friendly holidays and providing end-to-end travel consultancy — destination planning, visa advisory, hotel and transport — for families, honeymooners and corporate groups across Asia, the Middle East and Europe.",
+    sectors: ["Tour Operations", "Holiday Packages", "Travel Consultancy", "Corporate Offsites"],
+    highlights: [
+      "Authorized Tour Operator",
+      "Halal-friendly itineraries to 20+ countries",
+      "Custom family, honeymoon and corporate packages",
+      "On-trip WhatsApp concierge throughout the journey"
+    ],
+    body: [
+      {
+        heading: "Holidays designed around you",
+        paragraphs: [
+          "Khaja Holidays turns a destination wish into a planned, stress-free itinerary. Kashmir in the snow, Cappadocia at sunrise, the Maldives for a honeymoon, Turkey and Egypt for the history — each trip is built around prayer times, Halal dining and Bangladeshi taste.",
+          "As an authorized tour operator, we manage every moving part — air ticket, visa, hotel, transport and guide — under one roof, with one travel manager you can reach on WhatsApp throughout the trip."
+        ]
+      },
+      {
+        heading: "Consultancy that saves you money",
+        paragraphs: [
+          "Beyond packages, Khaja Holidays advises on the smartest routing, the right visa to apply for and the best season to travel — honest guidance that often saves more than our fee.",
+          "Corporate clients use us for reward trips, vendor offsites and family days, with branded merchandise and dedicated transport included."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+8801779734415",
+      email: "khajaair03@gmail.com",
+      address: "907 Surma Tower (Level 8), Taltola Road, Sylhet"
+    },
+    cta: { label: "Plan a holiday with us", href: "/contact" },
+    accent: "sky",
+    meta: {
+      title: "Khaja Holidays & Consultancy — Authorized Tour Operator",
+      description: "Halal-friendly holiday packages and end-to-end travel consultancy from Khaja International Group — Kashmir, Bali, Maldives, Turkey, Egypt and more."
+    }
+  },
+  {
+    slug: "khaja-international-company",
+    title: "Khaja International Company, LLC",
+    role: "Saudi Arabia operations of Khaja International Group",
+    tagline: "Makkah-based — Commercial Registration (CR) No: 7054132522",
+    established: "2020",
+    intro:
+      "Khaja International Company, LLC is the group's licensed Saudi Arabia operation, registered in the Kingdom under Commercial Registration No-7054132522. Based in Makkah, it handles on-ground logistics for our Hajj and Umrah pilgrims — hotels, transport, Maktab coordination and 24/7 in-country support.",
+    sectors: ["On-ground Hajj/Umrah services", "KSA Hotels & Transport", "Maktab Coordination", "Pilgrim Support"],
+    highlights: [
+      "Saudi registered — CR No-7054132522",
+      "Makkah office at Ajyad Rea Bakhsh",
+      "Direct hotel and transport contracts inside KSA",
+      "24/7 Arabic & Bangla speaking ground team"
+    ],
+    body: [
+      {
+        heading: "Khedmat that continues inside the Kingdom",
+        paragraphs: [
+          "Many agencies stop at the boarding gate. Khaja International Company is why our khedmat continues the moment a pilgrim lands in Jeddah or Madinah. Registered in Saudi Arabia (CR No-7054132522), our Makkah team manages hotels, transfers, Mina and Arafah logistics and any emergency that arises.",
+          "Having our own licensed entity inside the Kingdom means we negotiate hotels and transport directly, respond to issues in real time, and never hand our pilgrims to an unknown third party."
+        ]
+      },
+      {
+        heading: "One group, two countries, one standard",
+        paragraphs: [
+          "The Saudi office works hand in hand with the Dhaka and Sylhet teams so a pilgrim experiences a single, seamless journey — booked in Bangladesh, served in Saudi Arabia, to the same standard end to end.",
+          "Our Makkah desk also assists Bangladeshi travellers already in the Kingdom with hotel extensions, ground transport and Ziyarah arrangements."
+        ]
+      }
+    ],
+    contact: {
+      phone: "+966508785198",
+      email: "info@khajainternational.com",
+      address: "Ajyad Rea Bakhsh, Makkah, Kingdom of Saudi Arabia"
+    },
+    cta: { label: "Reach our Makkah office", href: "/contact" },
+    accent: "emerald",
+    meta: {
+      title: "Khaja International Company LLC — Saudi Arabia Operations (CR 7054132522)",
+      description: "Makkah-based Saudi operation of Khaja International Group. CR No-7054132522 — on-ground Hajj & Umrah hotels, transport, Maktab coordination and 24/7 support."
     }
   }
 ];

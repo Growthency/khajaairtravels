@@ -63,7 +63,7 @@ export const posts: Post[] = [
 
     <h2>A small word from us</h2>
     <p>We say this every year: Hajj is one journey where saving BDT 50,000 by going with the cheapest option can cost you peace of mind for the rest of your life. Choose an agency you can visit in person, hold the manager's eye, and trust to look after your father, your mother, your spouse for the most important journey they will ever take.</p>
-    <p>If you would like to sit with our Hajj desk in Uttara, please come on any Saturday or Sunday morning. Tea is on us, the Mu'allim is on standby, and you can leave without a deposit.</p>`
+    <p>If you would like to sit with our Hajj desk in Dhaka, please come on any Saturday or Sunday morning. Tea is on us, the Mu'allim is on standby, and you can leave without a deposit.</p>`
   },
   {
     slug: "umrah-in-ramadan-what-makes-it-different",
@@ -154,7 +154,7 @@ export const posts: Post[] = [
     <p>The visa allows you to enter the UAE once within 60 days of issue and stay for up to 60 days after entry. You can leave and return only if you arrange a re-entry permit. For most Bangladeshi travellers, the single entry rule is sufficient.</p>
     <p>If you want to extend the stay, our partner office in Dubai can arrange a 30-day extension at the official rate without needing to fly out.</p>
 
-    <p>Visit our Uttara office on any working day between 9:30 AM and 7:30 PM with your passport and we will complete the eligibility check in 15 minutes — at no charge. If we believe the visa will not be granted, we say so upfront so you do not pay for an unwinnable application.</p>`
+    <p>Visit our Dhaka office on any working day between 9:30 AM and 7:30 PM with your passport and we will complete the eligibility check in 15 minutes — at no charge. If we believe the visa will not be granted, we say so upfront so you do not pay for an unwinnable application.</p>`
   },
   {
     slug: "kashmir-in-winter-bangladeshi-traveller-itinerary",
@@ -208,7 +208,7 @@ export const posts: Post[] = [
     <h2>What to pack</h2>
     <p>Heavy thermal innerwear, a down jacket rated to -10°C, gloves, beanie, waterproof boots with good grip, prescription glasses (sunglasses fog up quickly in cold), basic medicines and a hot water bottle for the houseboat night.</p>
 
-    <p>Walk into our Uttara office or WhatsApp us with your preferred dates and we will lock the houseboat, the SUV and Bashir bhai for your group within 24 hours.</p>`
+    <p>Walk into our Dhaka office or WhatsApp us with your preferred dates and we will lock the houseboat, the SUV and Bashir bhai for your group within 24 hours.</p>`
   },
   {
     slug: "turkey-8-days-istanbul-cappadocia-pamukkale",
@@ -265,7 +265,7 @@ export const posts: Post[] = [
     <h2>What to pack</h2>
     <p>Modest clothing for mosque visits, comfortable walking shoes for cobblestone streets, a warm jacket for the Cappadocia balloon (sunrise is cold even in May), a power bank, and a wide-brim hat for Pamukkale.</p>
 
-    <p>Speak to our Uttara office to customise the itinerary — many families add Konya (the Mawlana Rumi shrine) or Bursa (the first Ottoman capital). We can also build a 12-day version that includes Edirne and Gallipoli.</p>`
+    <p>Speak to our Dhaka office to customise the itinerary — many families add Konya (the Mawlana Rumi shrine) or Bursa (the first Ottoman capital). We can also build a 12-day version that includes Edirne and Gallipoli.</p>`
   },
   {
     slug: "saudi-work-visa-pre-departure-checklist",

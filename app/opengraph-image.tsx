@@ -81,7 +81,7 @@ export default async function Image() {
           }}
         >
           <span>khajaairtravels.com</span>
-          <span>Uttara, Dhaka · Bangladesh</span>
+          <span>Dhaka · Bangladesh</span>
         </div>
       </div>
     ),

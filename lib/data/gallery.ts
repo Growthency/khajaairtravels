@@ -66,7 +66,7 @@ export const gallery: GalleryItem[] = [
   },
   {
     id: "office-team",
-    title: "Our Uttara office",
+    title: "Our Dhaka office",
     caption: "The Khaja Air Travels team after morning briefing.",
     category: "Office",
     src: "/images/gallery/office-team.webp",

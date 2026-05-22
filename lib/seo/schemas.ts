@@ -14,12 +14,12 @@ export const organizationSchema = () => ({
   email: SITE.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "House 12, Road 4, Sector 7",
-    addressLocality: "Uttara, Dhaka",
-    postalCode: "1230",
+    streetAddress: "61 Nikethon Mulla Complex",
+    addressLocality: "Dhaka",
+    postalCode: "1000",
     addressCountry: "BD"
   },
-  geo: { "@type": "GeoCoordinates", latitude: 23.8742, longitude: 90.3909 },
+  geo: { "@type": "GeoCoordinates", latitude: 23.7776, longitude: 90.4076 },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -84,12 +84,12 @@ export const localBusinessSchema = () => ({
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "House 12, Road 4, Sector 7",
-    addressLocality: "Uttara, Dhaka",
-    postalCode: "1230",
+    streetAddress: "61 Nikethon Mulla Complex",
+    addressLocality: "Dhaka",
+    postalCode: "1000",
     addressCountry: "BD"
   },
-  geo: { "@type": "GeoCoordinates", latitude: 23.8742, longitude: 90.3909 },
+  geo: { "@type": "GeoCoordinates", latitude: 23.7776, longitude: 90.4076 },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],

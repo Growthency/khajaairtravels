@@ -11,7 +11,7 @@ export const t = {
       en: "Govt. Approved Hajj Agency — Licence No-0252",
       bn: "সরকার অনুমোদিত হজ এজেন্সি — লাইসেন্স নং-০২৫২"
     },
-    location: { en: "Uttara, Dhaka", bn: "উত্তরা, ঢাকা" }
+    location: { en: "Dhaka", bn: "ঢাকা" }
   },
   nav: {
     home:     { en: "Home",     bn: "হোম" },
@@ -92,13 +92,13 @@ export const t = {
       kicker:   { en: "What we do",                          bn: "আমরা যা করি" },
       titleA:   { en: "Five desks. One promise:",            bn: "পাঁচটি ডেস্ক। এক প্রতিশ্রুতি:" },
       titleB:   { en: "khedmat over upsell.",                bn: "আপসেলের চেয়ে খেদমত।" },
-      sub:      { en: "Every desk in our Uttara office is run by an experienced team lead. No call centre. No bouncing between agents. The person who answers the phone is the person who closes your file.", bn: "আমাদের উত্তরা অফিসের প্রতিটি ডেস্ক একজন অভিজ্ঞ টিম লিডার চালান। কোনো কল সেন্টার নেই। এজেন্ট থেকে এজেন্টে ঘোরাঘুরি নেই। যিনি ফোন তোলেন তিনিই আপনার ফাইল ক্লোজ করেন।" }
+      sub:      { en: "Every desk in our Dhaka office is run by an experienced team lead. No call centre. No bouncing between agents. The person who answers the phone is the person who closes your file.", bn: "আমাদের ঢাকা অফিসের প্রতিটি ডেস্ক একজন অভিজ্ঞ টিম লিডার চালান। কোনো কল সেন্টার নেই। এজেন্ট থেকে এজেন্টে ঘোরাঘুরি নেই। যিনি ফোন তোলেন তিনিই আপনার ফাইল ক্লোজ করেন।" }
     },
     hajj: {
       kicker:   { en: "Our Flagship Service",                bn: "আমাদের প্রধান সেবা" },
       titleA:   { en: "Hajj & Umrah, performed the way",     bn: "হজ ও উমরাহ — যেমনটি" },
       titleB:   { en: "it should be.",                       bn: "হওয়া উচিত।" },
-      sub:      { en: "From the day you bring your passport to our Uttara office to the day you return home with a Hajj certificate in your hand, every step is planned, every cost is itemised, and a Bangla-speaking khadem stays with the group through every ritual.", bn: "যেদিন আপনি পাসপোর্ট নিয়ে আমাদের উত্তরা অফিসে আসেন থেকে যেদিন হাতে হজ সার্টিফিকেট নিয়ে বাসায় ফেরেন — প্রতিটি ধাপ পরিকল্পিত, প্রতিটি খরচ আইটেমাইজড, এবং প্রতিটি ইবাদতে গ্রুপের সাথে একজন বাংলাভাষী খাদেম থাকেন।" },
+      sub:      { en: "From the day you bring your passport to our Dhaka office to the day you return home with a Hajj certificate in your hand, every step is planned, every cost is itemised, and a Bangla-speaking khadem stays with the group through every ritual.", bn: "যেদিন আপনি পাসপোর্ট নিয়ে আমাদের ঢাকা অফিসে আসেন থেকে যেদিন হাতে হজ সার্টিফিকেট নিয়ে বাসায় ফেরেন — প্রতিটি ধাপ পরিকল্পিত, প্রতিটি খরচ আইটেমাইজড, এবং প্রতিটি ইবাদতে গ্রুপের সাথে একজন বাংলাভাষী খাদেম থাকেন।" },
       ctaSee:   { en: "See full Hajj & Umrah package",       bn: "সম্পূর্ণ হজ ও উমরাহ প্যাকেজ দেখুন" },
       ctaBook:  { en: "Book a free consultation",            bn: "ফ্রি পরামর্শের জন্য বুক করুন" },
       tagSeason:{ en: "Hajj 1447 H",                         bn: "হজ ১৪৪৭ হিজরি" },
@@ -130,7 +130,7 @@ export const t = {
       sub:     { en: "We refuse to make booking a trip feel like a paperwork war. Here is what working with us actually looks like.", bn: "একটি ট্রিপ বুক করাকে কাগজপত্রের যুদ্ধের মতো করতে আমরা অস্বীকার করি। আমাদের সাথে কাজ করা আসলে কেমন দেখায় তা এখানে।" },
       s1l: { en: "Talk",     bn: "কথা" },
       s1t: { en: "Tell us what you need",  bn: "আপনার প্রয়োজন বলুন" },
-      s1b: { en: "Walk into our Uttara office, call us or WhatsApp. We listen first, ask about your dates, budget and preferences.", bn: "আমাদের উত্তরা অফিসে আসুন, কল করুন বা হোয়াটসঅ্যাপ করুন। আমরা প্রথমে শুনি, আপনার তারিখ, বাজেট ও পছন্দ জানতে চাই।" },
+      s1b: { en: "Walk into our Dhaka office, call us or WhatsApp. We listen first, ask about your dates, budget and preferences.", bn: "আমাদের ঢাকা অফিসে আসুন, কল করুন বা হোয়াটসঅ্যাপ করুন। আমরা প্রথমে শুনি, আপনার তারিখ, বাজেট ও পছন্দ জানতে চাই।" },
       s2l: { en: "Plan",     bn: "পরিকল্পনা" },
       s2t: { en: "We design and quote",    bn: "আমরা ডিজাইন ও কোট করি" },
       s2b: { en: "Within 24 hours you get a clear, itemised quote — no hidden fees. We hold flights and rooms for 72 hours at no cost.", bn: "২৪ ঘণ্টার মধ্যে স্পষ্ট, আইটেমাইজড কোট পাবেন — কোনো লুকানো ফি নেই। আমরা ফ্লাইট ও রুম ৭২ ঘণ্টা বিনামূল্যে হোল্ড করি।" },
@@ -156,7 +156,7 @@ export const t = {
       r2: { t: { en: "IATA verified consolidator",  bn: "আইএটিএ ভেরিফায়েড কনসলিডেটর" }, b: { en: "Direct contracts with Biman, Saudia, Emirates, Qatar, Etihad and 80+ more — so the fare you see is the fare you pay.", bn: "বিমান, সৌদিয়া, এমিরেটস, কাতার, ইতিহাদ ও ৮০+ অন্যান্যর সাথে সরাসরি চুক্তি — তাই আপনি যে ভাড়া দেখেন তা-ই দেন।" } },
       r3: { t: { en: "Transparent, itemised pricing", bn: "স্বচ্ছ, আইটেমাইজড দাম" }, b: { en: "Every invoice shows airline tax, visa fee, our service charge and BSTI/VAT separately. No hidden numbers, ever.", bn: "প্রতিটি ইনভয়েসে এয়ারলাইন কর, ভিসা ফি, আমাদের সার্ভিস চার্জ এবং BSTI/VAT আলাদা দেখানো। কখনোই লুকানো সংখ্যা নেই।" } },
       r4: { t: { en: "Same-day issuance",           bn: "সেইম-ডে ইস্যু" }, b: { en: "Confirmed payment in the morning means an e-ticket in your inbox by afternoon. We do not waste your trip days on paperwork.", bn: "সকালে কনফার্ম পেমেন্ট মানে বিকেলেই ইনবক্সে ই-টিকিট। কাগজপত্রে আপনার ট্রিপের দিন নষ্ট করি না।" } },
-      r5: { t: { en: "Bangla-speaking khedmat",     bn: "বাংলাভাষী খেদমত" }, b: { en: "From the Mu'allim on Hajj to our visa officer in Uttara — every conversation happens in your comfortable language.", bn: "হজের মুয়াল্লিম থেকে উত্তরার ভিসা অফিসার পর্যন্ত — প্রতিটি কথোপকথন আপনার স্বাচ্ছন্দ্যের ভাষায়।" } },
+      r5: { t: { en: "Bangla-speaking khedmat",     bn: "বাংলাভাষী খেদমত" }, b: { en: "From the Mu'allim on Hajj to our visa officer in Dhaka — every conversation happens in your comfortable language.", bn: "হজের মুয়াল্লিম থেকে ঢাকার ভিসা অফিসার পর্যন্ত — প্রতিটি কথোপকথন আপনার স্বাচ্ছন্দ্যের ভাষায়।" } },
       r6: { t: { en: "24/7 emergency line",         bn: "২৪/৭ ইমার্জেন্সি লাইন" }, b: { en: "A real human on the other end of the phone — even at 3 AM when your flight is delayed and you do not know what to do next.", bn: "ফোনের অপর প্রান্তে একজন বাস্তব মানুষ — এমনকি রাত ৩টায় যখন আপনার ফ্লাইট দেরি হয় এবং পরে কী করবেন জানেন না।" } }
     },
     testimonials: {
@@ -187,9 +187,20 @@ export const t = {
       kicker: { en: "Ready when you are",           bn: "আপনার প্রস্তুতির অপেক্ষায়" },
       titleA: { en: "One conversation. One trusted partner.", bn: "একটি কথোপকথন। একজন বিশ্বস্ত পার্টনার।" },
       titleB: { en: "A lifetime of journeys.",       bn: "আজীবনের যাত্রা।" },
-      sub:    { en: "Walk into our Uttara office, call us, or just say \"Assalamu Alaikum\" on WhatsApp. We will take it from there.", bn: "আমাদের উত্তরা অফিসে আসুন, কল করুন, বা হোয়াটসঅ্যাপে শুধু \"আসসালামু আলাইকুম\" বলুন। আমরা এরপর থেকে নিয়ে নেব।" }
+      sub:    { en: "Walk into our Dhaka office, call us, or just say \"Assalamu Alaikum\" on WhatsApp. We will take it from there.", bn: "আমাদের ঢাকা অফিসে আসুন, কল করুন, বা হোয়াটসঅ্যাপে শুধু \"আসসালামু আলাইকুম\" বলুন। আমরা এরপর থেকে নিয়ে নেব।" }
     },
-    airlines: { en: "Issuing tickets across 90+ airlines including", bn: "৯০+ এয়ারলাইনে টিকিট ইস্যু — অন্তর্ভুক্ত" }
+    airlines: { en: "Issuing tickets across 90+ airlines including", bn: "৯০+ এয়ারলাইনে টিকিট ইস্যু — অন্তর্ভুক্ত" },
+    leadership: {
+      kicker: { en: "Our Leadership", bn: "আমাদের নেতৃত্ব" },
+      titleA: { en: "The people behind",      bn: "যারা গড়েছেন" },
+      titleB: { en: "the khedmat.",           bn: "এই খেদমত।" },
+      sub:    { en: "Khaja International Group is led by a team that treats every pilgrim and traveller like family — and has done so for two decades.", bn: "খাজা ইন্টারন্যাশনাল গ্রুপ পরিচালিত হয় এমন একটি টিম দ্বারা যারা প্রতিটি হাজী ও ভ্রমণকারীকে পরিবারের মতো দেখে — দুই দশক ধরে।" },
+      meet:   { en: "Meet our leadership",    bn: "আমাদের নেতৃত্ব দেখুন" }
+    },
+    group: {
+      part:   { en: "Part of",                bn: "একটি অংশ" },
+      name:   { en: "Khaja International Group", bn: "খাজা ইন্টারন্যাশনাল গ্রুপ" }
+    }
   },
 
   page: {
@@ -264,7 +275,7 @@ export const t = {
       titleA: { en: "Walk in, call, or just say", bn: "আসুন, কল করুন, বা শুধু বলুন" },
       titleB: { en: "Assalamu Alaikum",           bn: "আসসালামু আলাইকুম" },
       titleC: { en: "on WhatsApp.",               bn: "হোয়াটসঅ্যাপে।" },
-      sub:    { en: "Our Uttara office is open six days a week. Tea is on us. If you cannot come in person, the same team is on the phone and WhatsApp — and we reply within an hour during office hours.", bn: "আমাদের উত্তরা অফিস সপ্তাহে ছয় দিন খোলা। চা আমাদের পক্ষ থেকে। সশরীরে আসতে না পারলেও একই টিম ফোনে ও হোয়াটসঅ্যাপে আছে — অফিস সময়ে এক ঘণ্টার মধ্যে উত্তর দিই।" },
+      sub:    { en: "Our Dhaka office is open six days a week. Tea is on us. If you cannot come in person, the same team is on the phone and WhatsApp — and we reply within an hour during office hours.", bn: "আমাদের ঢাকা অফিস সপ্তাহে ছয় দিন খোলা। চা আমাদের পক্ষ থেকে। সশরীরে আসতে না পারলেও একই টিম ফোনে ও হোয়াটসঅ্যাপে আছে — অফিস সময়ে এক ঘণ্টার মধ্যে উত্তর দিই।" },
       send:   { en: "Send us a note",             bn: "আমাদের একটি নোট পাঠান" },
       tellWhere:{ en: "Tell us where you'd like to go.", bn: "আমাদের বলুন কোথায় যেতে চান।" },
       tellSub:{ en: "Share a few details and the right desk will reply with a quote and the next step.", bn: "কিছু বিবরণ শেয়ার করুন এবং সঠিক ডেস্ক একটি কোট ও পরবর্তী ধাপ নিয়ে উত্তর দেবে।" },
@@ -275,14 +286,14 @@ export const t = {
       kicker: { en: "Gallery",                    bn: "গ্যালারি" },
       titleA: { en: "Moments from",               bn: "মুহূর্ত আমাদের" },
       titleB: { en: "our journeys.",              bn: "যাত্রা থেকে।" },
-      sub:    { en: "Snapshots from Hajj seasons, Umrah groups, family tours and a typical morning in our Uttara office. Every photograph here is from a real Khaja Air Travels trip.", bn: "হজ মৌসুম, উমরাহ গ্রুপ, পারিবারিক ট্যুর এবং আমাদের উত্তরা অফিসের একটি সাধারণ সকালের স্ন্যাপশট। এখানে প্রতিটি ছবি একটি বাস্তব খাজা এয়ার ট্র্যাভেলস ট্রিপ থেকে।" },
+      sub:    { en: "Snapshots from Hajj seasons, Umrah groups, family tours and a typical morning in our Dhaka office. Every photograph here is from a real Khaja Air Travels trip.", bn: "হজ মৌসুম, উমরাহ গ্রুপ, পারিবারিক ট্যুর এবং আমাদের ঢাকা অফিসের একটি সাধারণ সকালের স্ন্যাপশট। এখানে প্রতিটি ছবি একটি বাস্তব খাজা এয়ার ট্র্যাভেলস ট্রিপ থেকে।" },
       close:  { en: "Close",                      bn: "বন্ধ" }
     },
     faq: {
       kicker: { en: "Frequently asked",           bn: "সাধারণ প্রশ্ন" },
       titleA: { en: "Honest answers to",          bn: "সৎ উত্তর" },
       titleB: { en: "honest questions.",          bn: "সৎ প্রশ্নের।" },
-      sub:    { en: "Don't see your question? Pick up the phone, send a WhatsApp or walk into our Uttara office. We answer everything that does not require a stamp from a sovereign government.", bn: "আপনার প্রশ্ন দেখছেন না? ফোন তুলুন, হোয়াটসঅ্যাপ পাঠান বা উত্তরা অফিসে আসুন। সার্বভৌম সরকারের স্ট্যাম্প প্রয়োজন নেই এমন সব প্রশ্নের উত্তর দিই।" }
+      sub:    { en: "Don't see your question? Pick up the phone, send a WhatsApp or walk into our Dhaka office. We answer everything that does not require a stamp from a sovereign government.", bn: "আপনার প্রশ্ন দেখছেন না? ফোন তুলুন, হোয়াটসঅ্যাপ পাঠান বা ঢাকা অফিসে আসুন। সার্বভৌম সরকারের স্ট্যাম্প প্রয়োজন নেই এমন সব প্রশ্নের উত্তর দিই।" }
     }
   },
 

@@ -48,7 +48,7 @@ export const services: Service[] = [
     process: [
       {
         title: "Free consultation",
-        body: "Visit our Uttara office or call us on WhatsApp. We listen to your preferences — group size, hotel distance, meal plan — and recommend the package that fits."
+        body: "Visit our Dhaka office or call us on WhatsApp. We listen to your preferences — group size, hotel distance, meal plan — and recommend the package that fits."
       },
       {
         title: "Document submission",
@@ -176,7 +176,7 @@ export const services: Service[] = [
     ],
     meta: {
       title: "Visa Processing from Dhaka | Khaja Air Travels",
-      description: "End-to-end visa processing for Saudi Arabia, UAE, Malaysia, Thailand, Schengen, UK, USA and Canada from our Uttara office. Honest eligibility check, transparent fees."
+      description: "End-to-end visa processing for Saudi Arabia, UAE, Malaysia, Thailand, Schengen, UK, USA and Canada from our Dhaka office. Honest eligibility check, transparent fees."
     }
   },
   {

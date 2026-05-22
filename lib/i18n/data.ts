@@ -14,6 +14,8 @@ import { testimonials } from "@/lib/data/testimonials";
 import { testimonialsBn } from "@/lib/data/testimonials.bn";
 import { gallery } from "@/lib/data/gallery";
 import { galleryBn, galleryCategoryMap } from "@/lib/data/gallery.bn";
+import { leadership } from "@/lib/data/leadership";
+import { leadershipBn } from "@/lib/data/leadership.bn";
 
 export function useServices() {
   const { lang } = useLang();
@@ -53,4 +55,9 @@ export function useGallery() {
 export function useGalleryCategoryLabel() {
   const { lang } = useLang();
   return (cat: string) => (lang === "bn" ? galleryCategoryMap[cat] ?? cat : cat);
+}
+
+export function useLeadership() {
+  const { lang } = useLang();
+  return useMemo(() => (lang === "bn" ? leadershipBn : leadership), [lang]);
 }

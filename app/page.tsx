@@ -9,6 +9,7 @@ const HajjFeature = dynamic(() => import("@/components/sections/HajjFeature").th
 const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then((m) => m.WhyUs));
 const Stats = dynamic(() => import("@/components/sections/Stats").then((m) => m.Stats));
 const BranchesShowcase = dynamic(() => import("@/components/sections/BranchesShowcase").then((m) => m.BranchesShowcase));
+const Leadership = dynamic(() => import("@/components/sections/Leadership").then((m) => m.Leadership));
 const Process = dynamic(() => import("@/components/sections/Process").then((m) => m.Process));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then((m) => m.Testimonials));
 const BlogPreview = dynamic(() => import("@/components/sections/BlogPreview").then((m) => m.BlogPreview));
@@ -25,6 +26,7 @@ export default function HomePage() {
       <WhyUs />
       <Stats />
       <BranchesShowcase />
+      <Leadership compact />
       <Process />
       <Testimonials />
       <BlogPreview />

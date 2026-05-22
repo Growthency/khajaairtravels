@@ -4,7 +4,7 @@ export const faqs: FAQ[] = [
   {
     category: "About the agency",
     q: "Is Khaja Air Travels a Government Approved Hajj agency?",
-    a: "Yes. We carry Hajj Licence No-0252 issued by the Ministry of Religious Affairs, Government of the People's Republic of Bangladesh. The licence is renewed every season and is visible at our Uttara office reception."
+    a: "Yes. We carry Hajj Licence No-0252 issued by the Ministry of Religious Affairs, Government of the People's Republic of Bangladesh. The licence is renewed every season and is visible at our Dhaka office reception."
   },
   {
     category: "About the agency",
@@ -14,7 +14,7 @@ export const faqs: FAQ[] = [
   {
     category: "About the agency",
     q: "Where is your office?",
-    a: "Our corporate office is at House 12, Road 4, Sector 7, Uttara, Dhaka 1230. We are open Saturday to Thursday, 9:30 AM to 8:00 PM. Friday is closed except by appointment."
+    a: "Our Dhaka head office is at 61 Nikethon Mulla Complex, Dhaka 1000. We also have a Sylhet office at 907 Surma Tower (Level 8), Taltola Road, and a Saudi Arabia office at Ajyad Rea Bakhsh, Makkah. We are open Saturday to Thursday, 9:30 AM to 8:00 PM."
   },
   {
     category: "Hajj & Umrah",

@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     "UAE tourist visa",
     "Kashmir tour Bangladesh",
     "Turkey package Dhaka",
-    "Uttara travel agency"
+    "Dhaka travel agency"
   ],
   authors: [{ name: SITE.proprietor, url: SITE.url }],
   creator: SITE.name,

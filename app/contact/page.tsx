@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { MapPin, Phone, Mail, Clock, Building2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { PageHero } from "@/components/shared/PageHero";
 import { Container } from "@/components/shared/Container";
 import { Reveal } from "@/components/effects/Reveal";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { SITE, WA } from "@/lib/utils";
-import { branches } from "@/lib/data/branches";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Khaja Air Travels Uttara office",
+  title: "Contact Us — Khaja Air Travels Dhaka office",
   description:
-    "Visit our Uttara office, call us or WhatsApp our desk. Saturday — Thursday, 9:30 AM — 8:00 PM. We reply to every enquiry within one working day.",
+    "Visit our Dhaka office, call us or WhatsApp our desk. Saturday — Thursday, 9:30 AM — 8:00 PM. We reply to every enquiry within one working day.",
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact" }
 };
@@ -37,7 +36,7 @@ export default function ContactPage() {
             Walk in, call, or just say <span className="gradient-text">Assalamu Alaikum</span> on WhatsApp.
           </>
         }
-        subtitle="Our Uttara office is open six days a week. Tea is on us. If you cannot come in person, the same team is on the phone and WhatsApp — and we reply within an hour during office hours."
+        subtitle="Our Dhaka office is open six days a week. Tea is on us. If you cannot come in person, the same team is on the phone and WhatsApp — and we reply within an hour during office hours."
         tone="sky"
       />
 
@@ -116,7 +115,7 @@ export default function ContactPage() {
                 <Reveal>
                   <div className="overflow-hidden rounded-3xl border border-border">
                     <iframe
-                      title="Khaja Air Travels Uttara office map"
+                      title="Khaja Air Travels Dhaka office map"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d913.0073!2d90.3909!3d23.8742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDUyJzI3LjEiTiA5MMKwMjMnMjcuMiJF!5e0!3m2!1sen!2sbd!4v1700000000000"
                       width="100%"
                       height="280"
@@ -130,31 +129,29 @@ export default function ContactPage() {
                 <Reveal>
                   <div className="rounded-3xl border border-border bg-white p-7">
                     <div className="text-xs font-bold uppercase tracking-[0.22em] text-saffron-700">
-                      Branch offices
+                      Our offices
                     </div>
                     <ul className="mt-4 space-y-4">
-                      {branches.map((b) => (
-                        <li key={b.slug} className="rounded-2xl bg-paper-2 p-4">
+                      {SITE.offices.map((o) => (
+                        <li key={o.city} className="rounded-2xl bg-paper-2 p-4">
                           <div className="flex items-center gap-2.5">
                             <span className="grid size-9 place-items-center rounded-xl bg-white text-sky-700">
-                              <Building2 className="size-4" />
+                              <span className="text-base leading-none">{o.country === "SA" ? "🇸🇦" : "🇧🇩"}</span>
                             </span>
                             <div>
-                              <div className="text-sm font-semibold text-ink">{b.title}</div>
-                              <div className="text-[11px] text-ink-muted">{b.contact?.address}</div>
+                              <div className="text-sm font-semibold text-ink">{o.label}</div>
+                              <div className="text-[11px] text-ink-muted">{o.address}</div>
                             </div>
                           </div>
-                          {b.contact?.phone && (
-                            <a
-                              href={`tel:${b.contact.phone}`}
-                              className="mt-2 block text-xs font-medium text-sky-700 hover:underline"
-                            >
-                              {b.contact.phone}
-                            </a>
-                          )}
+                          <a href={`tel:${o.phone}`} className="mt-2 block text-xs font-medium text-sky-700 hover:underline">
+                            {o.phone}
+                          </a>
                         </li>
                       ))}
                     </ul>
+                    <p className="mt-5 border-t border-border pt-4 text-[11px] text-ink-muted">
+                      Khaja Air Travels is part of <span className="font-semibold text-ink-soft">Khaja International Group</span> — Khaja International (CAAB {SITE.caab}), Khaja Air Travels (Hajj {SITE.licence}), Khaja Holidays &amp; Consultancy and Khaja International Company LLC (KSA, CR {SITE.saudiCr}).
+                    </p>
                   </div>
                 </Reveal>
               </div>
