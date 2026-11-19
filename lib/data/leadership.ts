@@ -11,7 +11,7 @@ export type Leader = {
 export const leadership: Leader[] = [
   {
     id: "ceo",
-    name: "Md. Khaja Moinuddin",
+    name: "Sadik Ahmed",
     role: "Chief Executive Officer",
     image: "/images/team/ceo.webp",
     bio: "Leads the vision and growth of Khaja International Group across Bangladesh and Saudi Arabia, building partnerships that put the pilgrim and the traveller first."
@@ -25,7 +25,7 @@ export const leadership: Leader[] = [
   },
   {
     id: "manager",
-    name: "Md. Saiful Islam",
+    name: "Md. Faisal Shahi",
     role: "General Manager",
     image: "/images/team/manager.webp",
     bio: "Runs day-to-day operations across the Hajj, ticketing, visa and tour desks, making sure every file moves quickly and every traveller is looked after."
